@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARC Prize 2026 — Competition → Paper Execution Roadmap</title>
+<meta name="description" content="Execution-ready roadmap: ARC-AGI-2 → ARC-AGI-3 → Paper Track. Facts verified from official sources 2026-09-12/13.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Bengali:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6fa; --card:#ffffff; --ink:#171d2d; --soft:#3f4760; --mut:#79819a; --line:#e2e6f0;
+  --acc:#4f46e5; --acc2:#3730a3; --accbg:#eef0ff;
+  --p0:#dc2626; --p0bg:#fdecec; --p1:#ea580c; --p1bg:#fdf0e5; --p2:#2563eb; --p2bg:#e8efff; --p3:#64748b; --p3bg:#eef1f5;
+  --fact:#047857; --factbg:#e7f8f1; --obs:#1d4ed8; --obsbg:#e8efff; --hyp:#b45309; --hypbg:#fdf1dc; --rec:#7c3aed; --recbg:#f3ecfe;
+  --ver:#dc2626; --verbg:#fdecec; --gold:#92400e; --goldbg:#fef3c7; --ok:#047857; --okbg:#e7f8f1;
+  --dark:#12173a; --dark2:#2b2f7a;
+  --maxw:1160px; --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;overflow-wrap:break-word}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Inter','Noto Sans Bengali',-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.72;font-size:15.5px}
+code,.mono{font-family:'JetBrains Mono',Consolas,monospace;font-size:.88em}
+a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+/* header */
+header.hero{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%);color:#fff;padding:38px 0 30px}
+.hero h1{font-size:29px;font-weight:800;letter-spacing:-.4px;line-height:1.25}
+.hero .sub{color:#c3c8f5;margin-top:8px;font-size:15px;max-width:880px}
+.hero .chain{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px 14px;display:inline-block;color:#e6e8ff}
+.chips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:600}
+.chip b{color:#ffd66b;font-family:'JetBrains Mono',monospace}
+
+/* nav */
+nav.toc{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(20,25,60,.05)}
+nav.toc .in{max-width:var(--maxw);margin:0 auto;padding:8px 22px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.toc a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--soft);padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a span{color:var(--acc);font-family:'JetBrains Mono',monospace;font-size:11px;margin-right:4px}
+nav.toc a:hover{background:var(--accbg);text-decoration:none}
+nav.toc a.on{background:var(--acc);color:#fff} nav.toc a.on span{color:#c7cbff}
+
+/* sections */
+main{padding:26px 0 60px}
+section{margin:34px 0}
+h2{font-size:21.5px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+h2 .num{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--acc);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.lede{color:var(--soft);font-size:14.5px;margin-bottom:14px;max-width:920px}
+h3{font-size:16.5px;font-weight:700;margin:22px 0 8px;color:var(--ink)}
+h3 .mini{color:var(--acc);font-family:'JetBrains Mono',monospace;font-size:12px;margin-right:6px}
+h4{font-size:14.5px;font-weight:700;margin:14px 0 6px;color:var(--acc2)}
+p{margin:8px 0;color:var(--soft)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:12px 0;box-shadow:0 1px 4px rgba(20,25,60,.04)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
+.callout{border-radius:12px;padding:12px 16px;margin:12px 0;font-size:14px;border:1px solid var(--line);border-left:4px solid var(--acc);background:var(--accbg)}
+.callout.gold{border-left-color:var(--gold);background:var(--goldbg)}
+.callout.red{border-left-color:var(--ver);background:var(--verbg)}
+.callout.green{border-left-color:var(--fact);background:var(--factbg)}
+.bn{font-family:'Noto Sans Bengali','Inter',sans-serif;color:var(--acc2);font-size:14px}
+
+/* badges */
+.b{display:inline-block;font-size:10.5px;font-weight:700;line-height:1;padding:4px 7px;border-radius:6px;letter-spacing:.5px;vertical-align:1.5px;white-space:nowrap}
+.f{background:var(--factbg);color:var(--fact)} .o{background:var(--obsbg);color:var(--obs)} .h{background:var(--hypbg);color:var(--hyp)} .r{background:var(--recbg);color:var(--rec)} .v{background:var(--verbg);color:var(--ver)}
+.p0{background:var(--p0);color:#fff} .p1{background:var(--p1);color:#fff} .p2{background:var(--p2);color:#fff} .p3{background:var(--p3bg);color:var(--p3)}
+.gd{background:var(--gold);color:#fff} .okb{background:var(--okbg);color:var(--ok)}
+.eid{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--acc2)}
+
+/* tables */
+.twrap{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:12px;background:#fff}
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+.tbl th{background:#f0f2fa;text-align:left;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--soft);padding:9px 12px;border-bottom:2px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+.tbl tr:nth-child(even) td{background:#fafbfe}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td strong,.tbl td b{color:var(--ink)}
+.tbl .mono{font-size:12px}
+
+/* gates */
+.gate{border:1px solid var(--line);border-left:5px solid var(--acc);border-radius:12px;background:#fff;padding:14px 18px;margin:12px 0}
+.gate.pass{border-left-color:var(--fact)} .gate.warn{border-left-color:var(--gold)} .gate.stop{border-left-color:var(--ver)}
+.gate .gh{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
+.gate .gh b{font-size:15px}
+.gate .tb{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11.5px;background:var(--accbg);color:var(--acc2);padding:3px 9px;border-radius:6px}
+.gate dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 10px;font-size:13.5px;margin-top:6px}
+.gate dt{font-weight:700;color:var(--acc2);font-size:12px;text-transform:uppercase;letter-spacing:.4px;padding-top:2px}
+.gate dd{color:var(--soft)}
+@media(max-width:700px){.gate dl{grid-template-columns:minmax(0,1fr)}.gate dt{margin-top:6px}}
+
+/* experiment cards */
+details.exp{border:1px solid var(--line);border-radius:12px;background:#fff;margin:9px 0;overflow:hidden}
+details.exp summary{cursor:pointer;list-style:none;padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:600;font-size:14px}
+details.exp summary::-webkit-details-marker{display:none}
+details.exp summary .arw{margin-left:auto;color:var(--mut);font-size:12px;font-family:'JetBrains Mono',monospace}
+details.exp[open] summary{border-bottom:1px solid var(--line);background:#fafbfe}
+details.exp .body{padding:12px 18px 16px}
+details.exp .body .q{font-size:13px;color:var(--acc2);font-weight:600;margin-bottom:8px}
+dl.proto{display:grid;grid-template-columns:160px minmax(0,1fr);gap:7px 12px;font-size:13.5px}
+dl.proto dt{font-weight:700;color:var(--acc2);font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;padding-top:2px}
+dl.proto dd{color:var(--soft)}
+@media(max-width:700px){dl.proto{grid-template-columns:minmax(0,1fr)}dl.proto dt{margin-top:8px}}
+
+/* checklists */
+ul.chk{list-style:none;margin:8px 0}
+ul.chk li{margin:4px 0}
+ul.chk label{display:flex;gap:9px;align-items:flex-start;font-size:14px;color:var(--soft);cursor:pointer}
+ul.chk input{margin-top:4px;accent-color:var(--acc);width:15px;height:15px;flex:0 0 auto}
+ul.chk input:checked + span{color:var(--mut);text-decoration:line-through}
+
+/* ladder / stage flow */
+.ladder{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}
+.ladder .st{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:12px;font-weight:600;color:var(--soft)}
+.ladder .st.hot{background:var(--acc);border-color:var(--acc);color:#fff}
+.ladder .ar{color:var(--mut);font-size:12px}
+
+/* timeline */
+tr.dl td{background:#fff8e6 !important;font-weight:600;color:var(--gold)}
+tr.gate td{background:var(--accbg) !important}
+
+footer{border-top:1px solid var(--line);background:#fff;padding:26px 0 40px;margin-top:30px}
+footer p{font-size:12.5px;color:var(--mut)}
+.tiny{font-size:12px;color:var(--mut)}
+.toc2{font-size:12.5px;color:var(--mut);font-family:'JetBrains Mono',monospace}
+button.mini-btn{background:#fff;border:1px solid var(--line);border-radius:8px;font:600 12px 'Inter';color:var(--soft);padding:6px 12px;cursor:pointer}
+button.mini-btn:hover{background:var(--accbg)}
+@media print{
+  nav.toc{display:none} body{background:#fff;font-size:12px}
+  .card,.gate,details.exp{break-inside:avoid;box-shadow:none}
+  details.exp{border:none} details.exp .body{display:block !important}
+  header.hero{background:var(--dark) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>ARC Prize 2026 — Competition → Paper Execution Roadmap</h1>
+    <div class="sub">Personal command center for the full campaign: <b>Competition 2 (ARC-AGI-2)</b> → <b>Competition 3 (ARC-AGI-3)</b> → <b>Paper Track</b>. Every experiment answers a question; every decision has a gate; every claim is labeled.</div>
+    <div class="chain">TODAY → NEXT DAY → COMPETITION 2 → COMPETITION 3 → PAPER → FINAL RESEARCH PACKAGE</div>
+    <div class="chips">
+      <div class="chip">Build date: <b>2026-09-13</b></div>
+      <div class="chip">Entry/merger deadline: <b><span class="cd" data-t="2026-10-26">—</span></b></div>
+      <div class="chip">Final submissions (both tracks): <b><span class="cd" data-t="2026-11-02">—</span></b></div>
+      <div class="chip">Papers due: <b><span class="cd" data-t="2026-11-08">—</span></b></div>
+      <div class="chip">Results: <b><span class="cd" data-t="2026-12-04">—</span></b></div>
+    </div>
+    <div class="chips">
+      <div class="chip" style="background:rgba(255,214,107,.15);border-color:rgba(255,214,107,.4)">⚠ You are here: <b>W0 · Phase C2 — Infra &amp; Reverse-Engineering · next gate: G0-C2</b> (update this line weekly)</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="in">
+  <a href="#s1"><span>01</span>Overview</a>
+  <a href="#s2"><span>02</span>Objective</a>
+  <a href="#s3"><span>03</span>C2 Strategy</a>
+  <a href="#s4"><span>04</span>C2 Experiments</a>
+  <a href="#s5"><span>05</span>C2 Gates</a>
+  <a href="#s6"><span>06</span>C3 Strategy</a>
+  <a href="#s7"><span>07</span>C3 Experiments</a>
+  <a href="#s8"><span>08</span>C3 Gates</a>
+  <a href="#s9"><span>09</span>→Research</a>
+  <a href="#s10"><span>10</span>Paper</a>
+  <a href="#s11"><span>11</span>Tracking</a>
+  <a href="#s12"><span>12</span>Risks</a>
+  <a href="#s13"><span>13</span>Repro</a>
+  <a href="#s14"><span>14</span>Winning</a>
+  <a href="#s15"><span>15</span>Now</a>
+  <a href="#s16"><span>16</span>Timeline</a>
+  <a href="#s17"><span>17</span>DoD</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- ============ 1. EXECUTIVE OVERVIEW ============ -->
+<section id="s1">
+  <h2><span class="num">01</span>Executive Overview</h2>
+  <p class="lede">What this document is, what is already verified, and how to use it daily. Companion doc: <code>index.html</code> (expert learning guide — concepts &amp; background live there; this file is the <i>execution system</i>).</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">Name mapping (fix this once, use everywhere)</h3>
+    <div class="twrap"><table class="tbl">
+      <tr><th>Roadmap name</th><th>Official competition</th><th>Format</th><th>Prize pool</th><th>Key dates (2026)</th></tr>
+      <tr><td><b>Competition 2 (C2)</b></td><td>ARC Prize 2026 — ARC-AGI-2 <span class="tiny mono">[Kaggle]</span></td><td>Code competition · static grid reasoning · pass@2 exact match</td><td>$700,000</td><td>Final submission <b>Nov 2</b></td></tr>
+      <tr><td><b>Competition 3 (C3)</b></td><td>ARC Prize 2026 — ARC-AGI-3 <span class="tiny mono">[Kaggle]</span></td><td>Code competition · interactive games · agentic exploration</td><td>$850,000</td><td>M2 <b>Sep 30</b> · Final <b>Nov 2</b></td></tr>
+      <tr><td><b>Paper</b></td><td>ARC Prize 2026 — Paper Track <span class="tiny mono">[Kaggle Hackathon]</span></td><td>Writeup ≤1,500 words + public notebook, linked to a real submission</td><td>$450,000</td><td>Due <b>Nov 8</b> (arcprize.org) / <b>Nov 9</b> (Kaggle)</td></tr>
+    </table></div>
+    <p class="tiny">All values verified from Kaggle competition pages and arcprize.org on 2026-09-12/13 (fetch log in §16 / footer). Total campaign pool: $2,000,000.</p>
+  </div>
+
+  <h3>The verified state of play (as of Sep 12–13, 2026)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Signal</th><th>Value</th><th>Status</th><th>Implication for us</th></tr>
+    <tr><td>C2 public LB #1</td><td><b>76.94%</b> — team “rabbithole” (semi-private eval)</td><td><span class="b f">FACT</span> <span class="tiny">(LB snapshot 2026-09-12)</span></td><td>The field is far beyond 2025's winning 24.0%. Top-8 this year ≫ 24%. Plan targets accordingly (§3.4).</td></tr>
+    <tr><td>C3 public LB #1</td><td><b>11.04</b> — Tufa Labs</td><td><span class="b f">FACT</span> <span class="tiny">(LB snapshot 2026-09-12)</span></td><td>Nascent field; discovery space is wide open. Small validated edges move ranks a lot.</td></tr>
+    <tr><td>2025 winner (ARC-AGI-2 private)</td><td><b>24.0%</b> NVARC; 2nd 16.5% the ARChitects; 3rd 12.6% MindsAI</td><td><span class="b f">FACT</span></td><td>The reproducible recipe base we build on (§3.3).</td></tr>
+    <tr><td>85% Bonus (C2)</td><td>Unclaimed/conditional; rolls to 2027 if unmet</td><td><span class="b f">FACT</span></td><td>Do not plan around 85% — it is a stretch outcome, not a strategy (§2).</td></tr>
+    <tr><td>Both code deadlines</td><td>Same day — <b>Nov 2, 2026</b>; entry/merger <b>Oct 26</b></td><td><span class="b f">FACT</span></td><td>Sequential C2→C3 is possible only with hard freeze dates (§16).</td></tr>
+    <tr><td>C3 Milestone 2</td><td><b>Sep 30</b> — requires public open-source notebook</td><td><span class="b f">FACT</span> <span class="tiny">(prize split differs across sources: <span class="b v">VERIFY</span>)</span></td><td>17 days away. Explicit go/no-go decision on Day 0 (§15, §12-R9).</td></tr>
+  </table></div>
+
+  <div class="callout">
+    <b>How to use this file daily (the five questions it answers):</b>
+    <ol style="margin:6px 0 0 18px;color:var(--soft)">
+      <li><b>What am I doing now?</b> → header banner + §15 (Today/Next-Day) + current phase row in §16.</li>
+      <li><b>Why?</b> → each phase card states the objective and the score-lever it attacks (§3/§6).</li>
+      <li><b>What experiment comes next?</b> → §4/§7 master tables, ordered by <span class="mono">Impact × Evidence × Feasibility</span>.</li>
+      <li><b>What evidence do I need to proceed?</b> → each experiment card lists validation + expected signal + decision rule.</li>
+      <li><b>When do I stop / move on?</b> → decision gates §5/§8 with pass and kill criteria; Definition of Done §17.</li>
+    </ol>
+  </div>
+
+  <div class="callout gold">
+    <b>Evidence labels used everywhere in this file:</b>
+    <span class="b f">FACT</span> verified from official sources ·
+    <span class="b o">OBSERVATION</span> seen in the field, source noted, not officially confirmed ·
+    <span class="b h">HYPOTHESIS</span> plausible, unproven for our setup ·
+    <span class="b r">RECOMMENDATION</span> my strategic call based on evidence ·
+    <span class="b v">UNKNOWN / VERIFY</span> missing info — verify before relying on it.
+    <div class="bn" style="margin-top:6px">মূল নিয়ম: প্রতিটা experiment-এর পেছনে একটা question, প্রতিটা সিদ্ধান্তের পেছনে evidence — এটাই এই roadmap-এর প্রাণ।</div>
+  </div>
+</section>
+
+<!-- ============ 2. ULTIMATE OBJECTIVE ============ -->
+<section id="s2">
+  <h2><span class="num">02</span>Ultimate Objective</h2>
+  <p class="lede">One sentence: <b>maximize the probability of winning Competition 2, then Competition 3, while turning the strongest validated discoveries into a rigorous research paper.</b></p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Operational definition of "winning" — C2 (ARC-AGI-2)</h4>
+      <ul class="chk">
+        <li><label><input type="checkbox"><span><b>Tier 1 (must):</b> beat the published 2025 SOTA (24.0% private) with a reproducible system → internal validation ≥ 28–30%.</span></label></li>
+        <li><label><input type="checkbox"><span><b>Tier 2 (target):</b> top-8 Progress Prize ($275K pool) — requires placing on final private LB.</span></label></li>
+        <li><label><input type="checkbox"><span><b>Tier 3 (stretch):</b> top-3 + strongest eligible Solution Writeup → Grand Prize ($275K, judged on 6 rubric criteria, artifacts open-sourced within 7 days of Nov 2).</span></label></li>
+        <li><label><input type="checkbox"><span><b>Not a target:</b> 85% Bonus ($150K) — <span class="b h">HYPOTHESIS</span> out of reach this cycle given public #1 = 76.94; do not distort the plan chasing it.</span></label></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Operational definition of "winning" — C3 (ARC-AGI-3)</h4>
+      <ul class="chk">
+        <li><label><input type="checkbox"><span><b>Tier 1 (must):</b> a working, instrumented agent that beats random/baseline agents on public games and submits legally within the 9h runtime.</span></label></li>
+        <li><label><input type="checkbox"><span><b>Tier 2 (target):</b> top-5 final leaderboard ($75K pool); optional Milestone-2 public notebook by Sep 30 (guaranteed $75K pool, see §12-R9).</span></label></li>
+        <li><label><input type="checkbox"><span><b>Tier 3 (stretch):</b> 100% Grand Prize ($700K) — <span class="b o">OBSERVATION</span>: public #1 = 11.04 → treat as lottery, not plan.</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Operational definition of "winning" — Paper Track</h4>
+    <ul class="chk">
+      <li><label><input type="checkbox"><span><b>Tier 1 (must):</b> submit a complete Writeup (≤1,500 words) linked to a real Kaggle submission ID, with public notebook + media, before Nov 8/9.</span></label></li>
+      <li><label><input type="checkbox"><span><b>Tier 2 (target):</b> top-3 Paper Award ($75K pool); self-score ≥ 4.0/5 average on the official 6-criterion rubric before submitting.</span></label></li>
+      <li><label><input type="checkbox"><span><b>Tier 3 (stretch):</b> rubric &gt; 4.5/5 → Outstanding Papers pool ($375K, split equally).</span></label></li>
+      <li><label><input type="checkbox"><span><b>Bonus (post-Dec 4):</b> extended version → arXiv + workshop venue. <span class="b r">RECOMMENDATION</span>: the Kaggle Writeup is the deliverable; the extended paper is a by-product, not the goal.</span></label></li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <b>Evidence standard (applies to all three phases):</b> no change enters the final system without (a) a stated hypothesis, (b) a controlled delta on the validation harness, (c) a kept/killed/mod verdict recorded in the ledger. Leaderboard deltas of &lt; 1 test-output (≈0.83pp on 120-task semi-private, per-output scoring) are <b>noise</b> unless replicated or supported by a paired local test. Never claim superiority without this. <span class="b r">RECOMMENDATION</span>
+  </div>
+
+  <div class="callout red">
+    <b>Non-goals (explicit):</b> no API-based LLM calls at eval time (no internet on Kaggle — <span class="b f">FACT</span>); no chasing the 85%/100% bonus pools; no research topics that have no path to a leaderboard number; no ensemble component that has not individually earned its runtime cost.
+  </div>
+</section>
+<!-- ============ 3. COMPETITION 2 STRATEGY ============ -->
+<section id="s3">
+  <h2><span class="num">03</span>Competition 2 Strategy — ARC-AGI-2</h2>
+  <p class="lede">Objective: maximize pass@2 exact-match accuracy on the hidden ARC-AGI-2 evaluation, inside a 12-hour no-internet Kaggle notebook. Phase window: <b>now → Oct 17</b> (freeze), then monitoring only.</p>
+
+  <h3><span class="mini">3.1</span>Verified competition brief</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Item</th><th>Verified value</th><th>Status / source</th></tr>
+    <tr><td>Task</td><td>Solve novel grid-transformation tasks: predict exact output grid(s) for each test input, given input/output demonstration pairs per task.</td><td><span class="b f">FACT</span> Kaggle Overview</td></tr>
+    <tr><td>Scoring</td><td>Exactly <b>2 attempts per test output</b> (<span class="mono">attempt_1</span>, <span class="mono">attempt_2</span>). An output scores 1 if either attempt matches ground truth exactly. Final score = (sum of best score per test output) / (total number of test outputs). <b>Scoring unit is the test output, not the task</b> — tasks can have multiple test inputs.</td><td><span class="b f">FACT</span> Kaggle Evaluation</td></tr>
+    <tr><td>Submission</td><td><span class="mono">submission.json</span>; every task_id from the challenges file must appear; both attempts always present; multiple outputs per task in input order.</td><td><span class="b f">FACT</span> Kaggle</td></tr>
+    <tr><td>Data splits</td><td>Train 1,000 tasks (public, uncalibrated) · Public eval 120 · Semi-private 120 (live Kaggle LB) · Private 120 (final LB). Eval sets are calibrated IDD — scores comparable within ~1pp, assuming no overfitting. Brute-force-susceptible tasks removed; every eval task is human-solvable pass@2 by ≥2 humans.</td><td><span class="b f">FACT</span> arcprize.org/arc-agi/2</td></tr>
+    <tr><td>Compute</td><td>CPU ≤ 12h and GPU ≤ 12h · <b>no internet</b> · external public data &amp; pretrained weights allowed · L4×4 (96 GB VRAM) available, consumes quota at 2× rate, restricted to this competition · runtime obfuscated (±10 min variance on identical resubmissions).</td><td><span class="b f">FACT</span> Kaggle Code Requirements</td></tr>
+    <tr><td>Timeline</td><td>Entry/team-merger <b>Oct 26</b> · Final submission <b>Nov 2</b> · Winners <b>Dec 4</b>.</td><td><span class="b f">FACT</span> Kaggle Timeline</td></tr>
+    <tr><td>Prizes</td><td>$700K = Progress $275K (top-8: 75/50/40/35/25/20/15/15K) + Grand Prize $275K (best Solution Writeup, 6-criterion rubric; artifacts attached within 7 days of deadline) + Bonus $150K (≥85%, splits top-5, else rolls to 2027).</td><td><span class="b f">FACT</span> Kaggle Prizes</td></tr>
+    <tr><td>Open source</td><td>Prize eligibility requires open-sourcing all authored code/methods (permissive, e.g. CC0/MIT-0; 3rd-party code must be open-sharable). Applies to all three tracks.</td><td><span class="b f">FACT</span> arcprize.org/competitions/2026</td></tr>
+    <tr><td>Hidden eval mechanics</td><td>Semi-private 120 = the live public LB; final rank = private 120. Both calibrated to be statistically similar.</td><td><span class="b f">FACT</span></td></tr>
+    <tr><td>Exact data file layout on the 2026 Data tab</td><td>Standard ARC JSON format expected (challenges + solutions per split) — <span class="b v">VERIFY</span> exact filenames on the Data tab on Day 0.</td><td><span class="b v">UNKNOWN / VERIFY</span></td></tr>
+  </table></div>
+
+  <h3><span class="mini">3.2</span>Where score actually comes from (first principles)</h3>
+  <p>Solving a task = <b>generating a candidate program/rule</b> whose execution on the test input reproduces the ground truth, then <b>selecting the right 2 candidates</b> from everything generated. Every historical gain decomposes into these levers:</p>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Lever</th><th>What it is</th><th>Why it exists / why it works</th><th>Evidence status</th></tr>
+    <tr><td><b>L1 · Priors (generation)</b></td><td>Models pretrained on ARC-like data (synthetic corpora, prior-year tasks) that emit plausible transformations in-context or as code.</td><td>ARC rewards fluent skill acquisition; priors shrink the hypothesis space a priori.</td><td><span class="b f">FACT</span> every top system since 2024 uses strong priors.</td></tr>
+    <tr><td><b>L2 · Search</b></td><td>Program search: DSL enumeration, evolutionary mutation with execution feedback, beam over program space.</td><td>Execution-verified search converts compute into exactness; LLM guidance makes it tractable.</td><td><span class="b f">FACT</span> 2024 top-5 (DSL/program search); SOAR (2025 paper 2nd).</td></tr>
+    <tr><td><b>L3 · Selection &amp; verification</b></td><td>Rank candidates by train-fit, execution consistency, augmentation agreement; choose attempt_1/attempt_2.</td><td>Pass@2 means selection quality caps everything: a 40% pass@8 pool is worthless if your top-2 picks are wrong.</td><td><span class="b h">HYPOTHESIS</span> biggest under-exploited lever for us — measure first (C2-E04→E07).</td></tr>
+    <tr><td><b>L4 · Test-time training/adaptation</b></td><td>Per-task fine-tuning on augmented demonstration pairs; select checkpoint by train fit.</td><td>Specializes priors to each task's rule family; the single biggest 2024 breakthrough.</td><td><span class="b f">FACT</span> Akyürek et al.; ARChitects; MindsAI; NVARC all use variants.</td></tr>
+    <tr><td><b>L5 · Ensembling (diversity)</b></td><td>Union/voting across heterogeneous solver families (TTT net, TRM-class, program search, MDL).</td><td>Different families fail on different task types; NVARC's 24% came from stacking unlike components.</td><td><span class="b f">FACT</span> NVARC; ARChitects soft-voting; Product-of-Experts paper.</td></tr>
+    <tr><td><b>L6 · Compute allocation</b></td><td>Early-exit solved tasks; difficulty triage; adaptive k per task; batching; cache.</td><td>12h hard cap: wasted GPU-minutes on solved/unsolvable tasks are stolen from unsolved ones.</td><td><span class="b o">OBSERVATION</span> common postmortem theme; big cheap wins.</td></tr>
+    <tr><td><b>L7 · Data engineering</b></td><td>Synthetic generators targeted at AGI-2 axes: symbolic interpretation, compositional rules, contextual rules.</td><td>Train distribution ≠ eval distribution; targeted synthesis closes the specific gap AGI-2 was designed to create.</td><td><span class="b h">HYPOTHESIS</span> NVARC credits synthetic data; exact recipe = their edge.</td></tr>
+  </table></div>
+
+  <div class="callout"><b>Why ARC-AGI-2 is structurally different from ARC-AGI-1</b> <span class="b f">FACT</span> (arcprize.org capability tests): ① <b>symbolic interpretation</b> — symbols carry meaning beyond visual pattern; ② <b>compositional reasoning</b> — multiple interacting rules applied simultaneously; ③ <b>contextual rule application</b> — same rule applies differently by context. Systems that pattern-match AGI-1 transformations stall here; that stall is exactly the gap our data (L7) and selection (L3) should attack. Reasoning-model baselines score near 0–8% (<span class="b f">FACT</span> TRM ~8% AGI-2; CompressARC ~4%), while the calibrated evals remain human-solvable pass@2 by design.</div>
+
+  <h3><span class="mini">3.3</span>What the field has already proven (prior art we build on)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>System / paper</th><th>Verified result</th><th>Core mechanism</th><th>What we copy</th></tr>
+    <tr><td><b>NVARC</b> (2025 #1, I. Sorokin &amp; J.-F. Puget)</td><td><b>24.0%</b> private</td><td>Synthetic-data-driven <b>ensemble</b>: improved ARChitects-style TTT model + <b>TRM-based components</b> + refinement loops.</td><td>Heterogeneous ensemble skeleton; synthetic pretraining; refinement loop concept.</td></tr>
+    <tr><td><b>the ARChitects</b> (2024 #1 53.5% AGI-1; 2025 #2 16.5%)</td><td><span class="b f">FACT</span></td><td>TTT + augmentation sampling + soft voting + candidate selection; 2025: 2D-aware masked-diffusion LLM, recursive self-refinement, perspective-based scoring (Product-of-Experts).</td><td>Augmentation voting; perspective ensembling as a selection signal.</td></tr>
+    <tr><td><b>MindsAI</b> (2025 #3 12.6%)</td><td><span class="b f">FACT</span></td><td>Heavily engineered TTT pipeline: TTFT, augmentation ensembles, tokenizer dropout, pretraining tricks.</td><td>TTT engineering details; runtime discipline.</td></tr>
+    <tr><td><b>TRM</b> — "Less is More: Recursive Reasoning with Tiny Networks" (2025 Paper 1st, Jolicoeur-Martineau)</td><td>~45% AGI-1 / ~8% AGI-2; ~7M params</td><td>Single tiny recursive net, deep supervised refinement.</td><td>As an ensemble member + TTT target: tiny models fit Kaggle runtime beautifully.</td></tr>
+    <tr><td><b>SOAR</b> (2025 Paper 2nd, Pourcel et al.)</td><td>up to 52% ARC-AGI-1</td><td>Self-improving evolutionary program synthesis; LLM fine-tuned on own search traces.</td><td>Evolutionary search loop with execution verification (C2-E09) — adapt to local weights.</td></tr>
+    <tr><td><b>CompressARC</b> (2025 Paper 3rd, Liao &amp; Gu)</td><td>~4% AGI-2, no pretraining</td><td>MDL/compression objective trained per puzzle.</td><td>Optional diversity family (P3) — cheap, orthogonal errors.</td></tr>
+    <tr><td><b>TTT for ARC</b> (2024 Paper 2nd, Akyürek et al.)</td><td><span class="b f">FACT</span></td><td>Per-task test-time fine-tuning + augmentation voting + program-of-thought.</td><td>The canonical TTT recipe — our C2-E05 baseline core.</td></tr>
+    <tr><td><b>rabbithole</b> (2026 public #1)</td><td>76.94 semi-private (2026-09-12)</td><td>Method <span class="b v">UNKNOWN / VERIFY</span> (writeup not yet public).</td><td>Existence proof: ≥75% is attainable this cycle under Kaggle limits → recalibrate ambition (§2).</td></tr>
+  </table></div>
+  <p class="tiny">2025 cost benchmark: hosts published ≈ <b>$0.20 per task</b> for the winning region of the LB <span class="b f">FACT</span> — our runtime/budget engineering target for the final submission.</p>
+
+  <h3><span class="mini">3.4</span>Strategic targets &amp; score math</h3>
+  <ul>
+    <li><b>Score granularity:</b> 1 test output on 120 semi-private tasks ≈ 0.5–1.0pp depending on outputs-per-task mix. <span class="b r">RECOMMENDATION</span>: treat all LB moves &lt; 2pp as unproven.</li>
+    <li><b>Internal milestones</b> <span class="b r">RECOMMENDATION</span>: M-A: local harness parity (G0) → M-B: beat open public baseline on held-out train split → M-C: ≥ 24% equivalent on public eval/local proxy (2025 SOTA) → M-D: public LB ≥ 40% (top-10 plausible) → M-E: top-8/top-3 push via ensemble + selection tuning.</li>
+    <li><b>Where our edge can come from</b> (weaknesses of common approaches, from postmortems &amp; LB structure — <span class="b o">OBSERVATION</span>): ① selection is usually heuristic (top-vote) while pass@2 rewards a calibrated 2-attempt policy; ② ensembles are often near-duplicates (same family, different seeds) — low diversity, low ceiling; ③ runtime is poorly budgeted — many submissions starve their hardest tasks; ④ public-eval overfitting — teams tune on the 120 public tasks and lose the semi/private delta; ⑤ AGI-2 capability axes (symbolic/compositional/contextual) are under-served by generic RE-ARC-style data.</li>
+  </ul>
+
+  <h3><span class="mini">3.5</span>Strategy pillars (what we actually build)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Pillar</th><th>Pr.</th><th>Content</th><th>Score lever</th></tr>
+    <tr><td><b>P-A · Validation infrastructure</b></td><td><span class="b p0">P0</span></td><td>Local harness: loader, exact scorer (per-output pass@2), submission validator, runtime profiler, error-bucket tagger. Parity-tested against Kaggle.</td><td>Makes every other lever measurable.</td></tr>
+    <tr><td><b>P-B · TTT strong baseline</b></td><td><span class="b p0">P0</span></td><td>Open small-model (TRM-class / ≤8B) + per-task TTT on dihedral × color-perm augmentations + train-fit checkpoint selection + augmentation voting.</td><td>L4 + L3 (proven recipe).</td></tr>
+    <tr><td><b>P-C · Synthetic data targeting AGI-2 axes</b></td><td><span class="b p1">P1</span></td><td>Generator families for symbolic / compositional / contextual tasks + general RE-ARC-style volume; pretrain → measure transfer (C2-E06).</td><td>L7 + L1.</td></tr>
+    <tr><td><b>P-D · Selection &amp; 2-attempt policy</b></td><td><span class="b p1">P1</span></td><td>Rank candidates by train-fit × augmentation-agreement × execution-consistency; learn/heuristic calibrate attempt_1 vs attempt_2; measure vs pass@k oracle.</td><td>L3 (our differentiator).</td></tr>
+    <tr><td><b>P-E · Heterogeneous ensemble</b></td><td><span class="b p1">P1</span></td><td>Union across ≥3 families (TTT net, TRM-class, program search; optional MDL); leave-one-family-out justification.</td><td>L5 (NVARC pattern).</td></tr>
+    <tr><td><b>P-F · Runtime engineering</b></td><td><span class="b p2">P2</span></td><td>Difficulty triage, early-exit, adaptive k, batching, cache; 12h budget simulation with 30+ min safety margin (±10 min obfuscation variance).</td><td>L6.</td></tr>
+  </table></div>
+
+  <div class="callout green"><b>Validation doctrine (C2).</b> Primary validation = <b>held-out train split</b> (e.g., 100 tasks never used for tuning) + the <b>public eval 120</b> used sparingly with a logged query budget (≤2 full runs/week, every run recorded with submission ID). Never iterate on semi-private LB feedback alone — 120 outputs is small enough to overfit by accident. Report paired deltas (same tasks, same seed) not aggregate-only. <span class="b r">RECOMMENDATION</span></div>
+
+  <div class="callout"><b>Reproducibility considerations (C2).</b> Deterministic seeds for all sampling; pinned dependency versions; dataset SHA-256 logged; per-submission config snapshot stored with the notebook version; all model weights checksummed; every Kaggle submission archived with its config + local score. Full checklist in §13. Note: Grand Prize eligibility requires artifacts attached within 7 days of Nov 2 — the repro package must be submission-ready <i>before</i> the deadline, not after. <span class="b f">FACT</span> + <span class="b r">RECOMMENDATION</span></div>
+</section>
+<!-- ============ 4. C2 EXPERIMENT ROADMAP ============ -->
+<section id="s4">
+  <h2><span class="num">04</span>Competition 2 — Experiment Roadmap</h2>
+  <p class="lede">Every experiment = one question, one protocol, one decision. No random tinkering. Ordered by <span class="mono">Expected Impact × Evidence × Feasibility</span>. Status checkboxes persist in this file (localStorage).</p>
+
+  <div class="ladder">
+    <span class="st hot">Understanding</span><span class="ar">→</span>
+    <span class="st hot">Reverse-Eng / Infra</span><span class="ar">→</span>
+    <span class="st">Baseline</span><span class="ar">→</span>
+    <span class="st">Strong Baseline</span><span class="ar">→</span>
+    <span class="st">Experimentation</span><span class="ar">→</span>
+    <span class="st">Ablation</span><span class="ar">→</span>
+    <span class="st">Optimization</span><span class="ar">→</span>
+    <span class="st">Validation</span><span class="ar">→</span>
+    <span class="st">Ensemble / Advanced</span><span class="ar">→</span>
+    <span class="st">Final Submission</span>
+  </div>
+
+  <h3><span class="mini">4.1</span>Master experiment table (C2)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>ID</th><th>Pr.</th><th>Stage</th><th>Question it answers</th><th>Done</th></tr>
+    <tr><td class="eid">C2-E01</td><td><span class="b p0">P0</span></td><td>Reverse-Eng</td><td>Does my local scorer reproduce Kaggle's per-output pass@2 exactly?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E02</td><td><span class="b p0">P0</span></td><td>Baseline</td><td>Is the submission pipeline end-to-end functional (format, runtime, scoring)?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E03</td><td><span class="b p0">P0</span></td><td>Reverse-Eng</td><td>What does a known open baseline (TRM / TTT notebook) score locally, and what is our reference number B0?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E04</td><td><span class="b p0">P0</span></td><td>Baseline</td><td>What is the pass@1/2/8 ceiling of local LLM program-synthesis sampling?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E05</td><td><span class="b p0">P0</span></td><td>Strong baseline</td><td>Does per-task TTT + augmentation voting lift solve rate over E04?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E06</td><td><span class="b p1">P1</span></td><td>Experimentation</td><td>Does synthetic pretraining targeted at AGI-2's three capability axes beat generic ARC-like data?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E07</td><td><span class="b p1">P1</span></td><td>Experimentation</td><td>Can a calibrated selector close the gap between pass@2 and pass@8 (oracle headroom)?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E08</td><td><span class="b p1">P1</span></td><td>Ensemble</td><td>How much marginal pp does each heterogeneous solver family add (leave-one-out)?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E09</td><td><span class="b p2">P2</span></td><td>Experimentation</td><td>Does execution-verified evolutionary program search add solves on tasks the generators miss?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E10</td><td><span class="b p2">P2</span></td><td>Optimization</td><td>Where does runtime go, and can budget reallocation buy more solves within 12h?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E11</td><td><span class="b p1">P1</span></td><td>Ablation</td><td>What is the measured contribution of every final-system component?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E12</td><td><span class="b p2">P2</span></td><td>Validation</td><td>Is the final system robust across seeds, runtimes, and submission-format edge cases?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E13</td><td><span class="b p2">P2</span></td><td>Advanced</td><td>Do perspective/view ensembles (ARChitects-style) improve selection quality?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C2-E14</td><td><span class="b p3">P3</span></td><td>Exploratory</td><td>Do orthogonal cheap families (MDL/CompressARC-style, NCA-style) add ensemble diversity worth their runtime?</td><td><input type="checkbox"></td></tr>
+  </table></div>
+
+  <h3><span class="mini">4.2</span>Full experiment protocols (C2)</h3>
+  <p class="tiny">Fields per card: Hypothesis · Why it can improve · Implementation idea · Expected signal · Validation · Failure condition · Decision rule. Convention: validation split V = 100 held-out train tasks + public eval 120 (query-budgeted); baseline B0 = E03 result; Δ reported as paired difference on identical task sets.</p>
+
+  <details class="exp" open><summary><span class="eid">C2-E01</span> Scorer parity &amp; harness <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: can I trust every number my harness produces?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>A local scorer implementing "best-of-2 exact match per test output, averaged over outputs" can match Kaggle scoring with zero discrepancy.</dd>
+      <dt>Why improve</dt><dd>Not a score lever directly — it is the precondition for every delta we ever report; mis-scoring invalidates all decisions.</dd>
+      <dt>Implementation</dt><dd>Loader for ARC JSON (train/public eval); scorer with multi-output tasks + both attempts; validator enforcing the official submission schema (all task_ids present, attempt keys, output ordering); unit tests with hand-built edge cases (single-output, multi-output, wrong shapes, duplicate attempts).</dd>
+      <dt>Expected signal</dt><dd>100% unit-test pass; scorer output = 1.0 on perfect predictions, 0.0 on all-zeros; manual re-grade of 20 random tasks agrees with scorer.</dd>
+      <dt>Validation</dt><dd>Score the public eval set against its published ground truth in-harness; verify JSON validator rejects each malformed fixture.</dd>
+      <dt>Failure condition</dt><dd>Any discrepancy between scorer and manual/official reference; ambiguity in multi-output handling.</dd>
+      <dt>Decision rule</dt><dd><b>No other C2 work proceeds until PASS.</b> If ambiguity remains → resolve via Rules/Discussion tab before building anything else.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E02</span> Submission pipeline validation <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does a notebook survive the real Kaggle path (commit → submit → score → runtime measured)?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>A trivial submission (all-zeros, then prior-copy) completes the Kaggle loop and returns a score consistent with the harness.</dd>
+      <dt>Why improve</dt><dd>Format/runtime bugs discovered in week 6 cost a week; discovered now they cost an hour. Also measures real evaluation latency.</dd>
+      <dt>Implementation</dt><dd>Notebook A: all-zeros submission.json; Notebook B: "copy most-frequent train output shape" heuristic; both from the same repo template with config snapshotting.</dd>
+      <dt>Expected signal</dt><dd>Both scored; all-zeros ≈ 0; B0-small ≥ 0; runtime telemetry recorded; submission ledger entries created.</dd>
+      <dt>Validation</dt><dd>Kaggle score vs harness prediction of the same artifacts (should match exactly).</dd>
+      <dt>Failure condition</dt><dd>Submission rejected / runtime exceeded / score inconsistent with harness.</dd>
+      <dt>Decision rule</dt><dd>Keep template that passed; log all timings in ledger; if rejected → fix format issues immediately (this is a bug, not an experiment).</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E03</span> Reference baseline B0 (open SOTA reproduction) <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: what number defines "better" for all future deltas?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>A public open system (TRM inference and/or 2024/2025 open TTT notebook), run at reduced scale locally, yields a stable reference score on V.</dd>
+      <dt>Why improve</dt><dd>All keep/kill decisions are relative to B0; without it, "improvement" is opinion.</dd>
+      <dt>Implementation</dt><dd>Pick 1–2 open repos (TRM public code; an open TTT notebook); pin commits; run on V with documented subsampling if runtime-bound; record score + runtime scaling curve.</dd>
+      <dt>Expected signal</dt><dd>B0 established with CI (2 seeds); runtime per task measured; scaling extrapolation to full 12h documented.</dd>
+      <dt>Validation</dt><dd>Rerun variance ≤ 1 output on V; spot-check grader agreement.</dd>
+      <dt>Failure condition</dt><dd>Repo irreproducible / runtime infeasible even at reduced scale.</dd>
+      <dt>Decision rule</dt><dd>Keep as B0; if a repo fails reproducibility, document why and substitute the alternative; never tune B0 after this gate.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E04</span> Pass@k ceiling of local program synthesis <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: how much headroom does candidate generation hold, and where should compute go?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>An open code/CoT model executed locally, prompted per-task with demonstrations + executed-verification loop, shows a steep pass@1 ≪ pass@8 gap on V.</dd>
+      <dt>Why improve</dt><dd>Pass@k gap quantifies selection headroom (feeds E07) and generation quality ceiling (feeds E06); it converts "LLMs might help" into a number.</dd>
+      <dt>Implementation</dt><dd>Local weights (bundled later for submission); per task: sample k=8–16 candidate Python/DSL programs with temperature ladder; execute against demonstration pairs; keep executables fitting all demos; record per-task pass@k curves + failure buckets (no-program, wrong-shape, wrong-rule).</dd>
+      <dt>Expected signal</dt><dd>pass@8 − pass@2 ≥ 5–10pp → selection is the bottleneck; pass@2 ≈ pass@8 → generation is the bottleneck.</dd>
+      <dt>Validation</dt><dd>Same 100 V tasks, fixed seeds, 2 repeats; error buckets tabulated.</dd>
+      <dt>Failure condition</dt><dd>pass@2 near 0 across prompts/models → local model priors too weak; pivot weight to TTT (E05) and data (E06).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> as generator if pass@2 ≥ B0/2; <b>invest in E07</b> if pass@8 ≫ pass@2; <b>modify</b> prompts/model choice once; then freeze.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E05</span> TTT + augmentation voting strong baseline <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does the proven 2024/25 recipe (per-task test-time training + voting) beat our generation-only baseline?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Per-task fine-tuning on 8 dihedral × color-permutation augmented demonstrations, selecting checkpoints by train fit, and voting outputs across augmentations lifts V score ≥ 5pp over E04-only.</dd>
+      <dt>Why improve</dt><dd>TTT specializes priors to each task's rule family; augmentation voting cancels orientation/color noise — the single most replicated win in ARC history.</dd>
+      <dt>Implementation</dt><dd>Augmentation lib (verified: 8 dihedral transforms; color-perm sampling); per-task LoRA/full fine-tune with early stop on demo-fit; vote across augmentations with confidence = agreement count; produce 2 attempts = top-2 distinct outputs by vote.</dd>
+      <dt>Expected signal</dt><dd>V: Δ ≥ +5pp vs B0; runtime ≤ budget with E10 headroom.</dd>
+      <dt>Validation</dt><dd>Paired vs B0 on V; ablate voting off (E11 feeds); 2 seeds.</dd>
+      <dt>Failure condition</dt><dd>Δ &lt; +2pp after two tuning iterations, or runtime blows past budget with no fix.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> if Δ ≥ +5pp; <b>modify</b> (checkpoint-selection rule, aug set) once if +2–5pp; <b>discard</b> below +2pp and reallocate to E06/E07.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E06</span> Capability-targeted synthetic data <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does pretraining on generators built for AGI-2's three axes (symbolic / compositional / contextual) transfer better than generic ARC-like data?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>A mix of {RE-ARC-style volume + axis-targeted generators} as pretraining/fine-tuning corpus raises V score ≥ 3pp over generic-only, with largest gains on the error buckets tagged symbolic/compositional/contextual.</dd>
+      <dt>Why improve</dt><dd>AGI-2 was built to break pattern-matchers; targeted synthetic data is the cheapest way to inject those rule families into priors (NVARC's cited edge).</dd>
+      <dt>Implementation</dt><dd>Generator families: (a) symbol→semantics mappings, (b) multi-rule conjunction tasks, (c) context-conditioned rules; verify generator outputs are human-plausible via spot-checks; pretrain base model → rerun E05 pipeline unchanged.</dd>
+      <dt>Expected signal</dt><dd>Δ ≥ +3pp overall AND disproportionate gain on the three tagged buckets (error-bucket table before/after).</dd>
+      <dt>Validation</dt><dd>Same V; ablate corpus mix (generic vs targeted vs both); 2 seeds.</dd>
+      <dt>Failure condition</dt><dd>No Δ, or Δ only on tasks already solved (no bucket shift).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> mix that wins; <b>modify</b> generator distributions once if buckets don't move; <b>discard</b> targeted data if it hurts general buckets (catastrophic interference).</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E07</span> Selection &amp; 2-attempt policy <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: how close to the pass@8 oracle can a calibrated 2-attempt selector get?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Ranking candidates by a feature vector (train-fit, augmentation-agreement, execution-consistency, program simplicity/MDL, generator identity) recovers ≥ 50% of the pass@8−pass@2 gap.</dd>
+      <dt>Why improve</dt><dd>Pass@2 makes the top-2 picks the entire product; every pp of selection = pp of leaderboard, independent of generation quality.</dd>
+      <dt>Implementation</dt><dd>Log all candidates + features on V; offline: sweep ranking rules (weighted score, learned pairwise ranker if data suffices); attempt_1 = argmax, attempt_2 = best diverse runner-up (penalize near-duplicates of attempt_1).</dd>
+      <dt>Expected signal</dt><dd>Selected-2 accuracy ≥ midpoint between naive top-vote and oracle; ablation shows each feature's marginal value.</dd>
+      <dt>Validation</dt><dd>Held-out fold of V untouched by feature tuning; report gap-closure %; 5-fold CV for the learned variant.</dd>
+      <dt>Failure condition</dt><dd>Learned ranker overfits V folds (CV variance high) → fall back to fixed heuristic weights.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> best selector; freeze weights before any public-eval run; re-evaluate only inside E11 ablation.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E08</span> Heterogeneous ensemble &amp; leave-one-out <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does every family in the ensemble earn its runtime?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Union-voting across ≥3 families (TTT net, TRM-class, program-search; optional MDL) beats the best single family by ≥ 3pp, and each family contributes unique solves (leave-one-family-out Δ &gt; 0 for all).</dd>
+      <dt>Why improve</dt><dd>Families make uncorrelated errors (NVARC's verified pattern); union converts "different failure modes" into new solves.</dd>
+      <dt>Implementation</dt><dd>Per task: collect candidate outputs from all families; score by calibrated agreement + family reliability weights; attempts = top-2 distinct by ensemble score; track per-family solve matrices.</dd>
+      <dt>Expected signal</dt><dd>Ensemble Δ ≥ +3pp over best solo; solve-overlap matrix shows &lt; 80% overlap between family solve-sets.</dd>
+      <dt>Validation</dt><dd>Paired on V; runtime accounting per family (feeds E10).</dd>
+      <dt>Failure condition</dt><dd>Any family with LOO Δ ≈ 0 while consuming &gt; 15% runtime.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> families with positive LOO Δ per runtime-pp; <b>discard/limit</b> (e.g., run on 20% hardest tasks only) the rest.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E09</span> Execution-verified evolutionary search <span class="b p2">P2</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does SOAR-style search add solves on tasks the samplers miss?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Evolutionary mutation of LLM-proposed programs with execution-verified fitness solves a distinct slice of V tasks (≥ +1.5pp) at bounded GPU cost.</dd>
+      <dt>Why improve</dt><dd>Search converts compute into exactness on tasks where one-shot sampling plateaus; verified traces could later fine-tune generators (SOAR pattern).</dd>
+      <dt>Implementation</dt><dd>Population per task from E04; mutation ops (edit lines, swap ops, retarget colors); fitness = demos fit count then MDL tie-break; budget-capped generations; stop on perfect fit.</dd>
+      <dt>Expected signal</dt><dd>Δ ≥ +1.5pp concentrated on tasks unsolved by E04/E05; cost per extra solve documented (GPU-hr/pp).</dd>
+      <dt>Validation</dt><dd>Paired on V with fixed budget; report marginal solve cost curve.</dd>
+      <dt>Failure condition</dt><dd>Cost per extra solve &gt; 2× the same budget spent on more sampling (E04 curve).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> if beats sampling-per-pp; <b>restrict</b> to hardest-tier tasks if only they benefit; else <b>discard</b>.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E10</span> Runtime budget engineering <span class="b p2">P2</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: can the full pipeline fit 12h with ≥ 30 min margin, and does reallocation add solves?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Profiling + early-exit on solved tasks + difficulty triage (easy tasks get small k, hard tasks get the savings) yields ≥ +1pp within identical runtime.</dd>
+      <dt>Why improve</dt><dd>12h is a hard constraint; wasted minutes on already-solved tasks are the cheapest source of new compute; ±10 min runtime obfuscation demands margin.</dd>
+      <dt>Implementation</dt><dd>Phase timer; solved-detector (train-fit perfect + consistent vote) triggers skip; triage tiers by cheap first-pass difficulty estimate; batch scheduling; cache augmentation results.</dd>
+      <dt>Expected signal</dt><dd>Wall-clock ≤ 11.5h on full local replay; Δ ≥ +1pp from reallocation on V.</dd>
+      <dt>Validation</dt><dd>Full-pipeline dry run ×2 (variance ≤ 10 min); paired V score before/after triage.</dd>
+      <dt>Failure condition</dt><dd>Replay &gt; 12h or triage misclassifies hard tasks as easy (solved-count drop).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> settings that pass margin test; re-tune tiers once if triage error &gt; 5%; else simplify to uniform budget.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E11</span> Component ablation table <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: what is the measured contribution of every component (required for paper + final decisions)?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Each major component (TTT, voting, synthetic pretraining, selection, each ensemble family, triage) shows Δ &gt; 0 in leave-one-component-out on V.</dd>
+      <dt>Why improve</dt><dd>Ablations are simultaneously: final-system pruning, the paper's key table, and the audit trail against self-deception.</dd>
+      <dt>Implementation</dt><dd>Fixed final config; matrix of −component runs on V; identical seeds; one shared results table in the ledger with Δ + CI per row.</dd>
+      <dt>Expected signal</dt><dd>No component with Δ ≤ 0 remains in the final config; paper Table 1 materializes.</dd>
+      <dt>Validation</dt><dd>2 seeds per row for rows with Δ &lt; 2pp.</dd>
+      <dt>Failure condition</dt><dd>Any component negative or flat.</dd>
+      <dt>Decision rule</dt><dd><b>Remove/modify</b> flat or negative components; re-run the matrix once after changes (fixed point), then freeze config.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E12</span> Robustness &amp; format hardening <span class="b p2">P2</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does the final system survive seeds, slower clocks, and malformed edge cases?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>3-seed rerun variance ≤ 1 output; runtime replay under simulated slow clock stays ≤ 12h; validator passes adversarial fixtures (multi-output ordering, oversized grids, empty attempts).</dd>
+      <dt>Why improve</dt><dd>The final private run happens once, unobserved; robustness now is insurance on the only run that counts.</dd>
+      <dt>Implementation</dt><dd>Seed sweep on V subset; CPU-throttled replay; fuzz the validator; verify notebook works from cold start (fresh session, no cached state).</dd>
+      <dt>Expected signal</dt><dd>All checks pass; issues fixed and re-tested.</dd>
+      <dt>Validation</dt><dd>Checklist in §13 ticked; ledger row per check.</dd>
+      <dt>Failure condition</dt><dd>Any unexplained non-determinism or margin breach.</dd>
+      <dt>Decision rule</dt><dd><b>Blocker for final submission:</b> G4-C2 cannot pass with any open robustness failure.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E13</span> Perspective / view ensembles for selection <span class="b p2">P2</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: do ARChitects-style perspective scoring signals improve the E07 selector?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Scoring candidates under multiple input views (transposed/inverted color/rotated reference frames) and aggregating (product-of-experts style) adds ≥ +1pp on V over single-view selection.</dd>
+      <dt>Why improve</dt><dd>Agreement across perspectives is evidence of a rule rather than a coincidence of one view — a cheap, orthogonal selection feature.</dd>
+      <dt>Implementation</dt><dd>Extend E07 feature set with cross-view agreement features; rerun selection sweep on logged candidates (no new inference needed — pure post-processing).</dd>
+      <dt>Expected signal</dt><dd>Δ ≥ +1pp; feature importance shows view-agreement among top-3 features.</dd>
+      <dt>Validation</dt><dd>Same protocol as E07 (held-out fold).</dd>
+      <dt>Failure condition</dt><dd>Δ ≈ 0 or CV instability.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> if Δ ≥ +1pp else revert selector to E07 winner (cheap to test — pure post-processing).</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C2-E14</span> Orthogonal cheap families (exploratory) <span class="b p3">P3</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: do MDL/CompressARC-style or NCA-style solvers add diversity worth their slice of the 12h?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>A compression-objective or neural-cellular-automata family, run on the residual unsolved set only, adds ≥ +0.5pp ensemble gain for ≤ 5% runtime.</dd>
+      <dt>Why improve</dt><dd>These families optimize different objectives entirely — maximum error decorrelation per runtime-pp if cheap.</dd>
+      <dt>Implementation</dt><dd>Run candidate family on residual-unsolved tasks of V; feed outputs into E08 ensemble scoring; measure LOO Δ.</dd>
+      <dt>Expected signal</dt><dd>Unique solves &gt; 0 and LOO Δ ≥ +0.5pp at ≤ 5% runtime.</dd>
+      <dt>Validation</dt><dd>E08 machinery; cost accounting.</dd>
+      <dt>Failure condition</dt><dd>No unique solves or runtime &gt; threshold.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> only if both thresholds met — exploratory by definition; kill without regret otherwise.</dd>
+    </dl>
+  </div></details>
+
+  <div class="callout"><b>Priority matrix snapshot (Impact × Evidence × Feasibility, 1–5 each)</b> — re-score weekly in the ledger: E01 (5/5/5) · E05 (4/5/4) · E07 (5/3/4) · E06 (4/4/3) · E08 (4/4/3) · E04 (3/4/5) · E10 (3/4/4) · E11 (5/5/4 post-freeze) · E09 (3/3/3) · E13 (3/3/4) · E02 (3/5/5) · E03 (4/5/4) · E12 (4/5/4) · E14 (2/2/3). <span class="b r">RECOMMENDATION</span>: never run a P2/P3 while a P0 is red.</div>
+</section>
+<!-- ============ 5. C2 DECISION GATES ============ -->
+<section id="s5">
+  <h2><span class="num">05</span>Competition 2 — Decision Gates</h2>
+  <p class="lede">Gates are pass/kill checkpoints, not status meetings. A gate opens only with its evidence in the ledger. If a gate fails, the kill rule executes — no exceptions, no sunk-cost debates.</p>
+
+  <div class="gate pass"><div class="gh"><b>G0-C2 · Infrastructure verified</b><span class="b okb">PASS REQUIRED</span><span class="tb">W0 · by Sep 19</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>Repo scaffolded; datasets downloaded + hashed; rules accepted on Kaggle.</dd>
+      <dt>Evidence required</dt><dd>C2-E01 scorer parity unit tests green; C2-E02 submission loop completed (score + runtime logged); harness can score public eval end-to-end.</dd>
+      <dt>Pass rule</dt><dd>100% parity tests; ≥1 accepted Kaggle submission; ledger live.</dd>
+      <dt>Kill rule</dt><dd>n/a — this gate has no kill, only "do not pass Go".</dd>
+    </dl>
+  </div>
+
+  <div class="gate pass"><div class="gh"><b>G1-C2 · Baseline established &amp; beaten</b><span class="tb">W1 · by Sep 26</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>G0 passed; B0 (E03) frozen with CI.</dd>
+      <dt>Evidence required</dt><dd>E04 pass@k curves on V; E05 TTT paired delta vs B0; error buckets tagged.</dd>
+      <dt>Pass rule</dt><dd>Best system (likely E05) Δ ≥ +5pp vs B0 on V, 2 seeds.</dd>
+      <dt>Kill rule</dt><dd>If TTT Δ &lt; +2pp after 2 tuning iterations → demote TTT to ensemble member, promote generation+selection (E04/E07) to main line.</dd>
+    </dl>
+  </div>
+
+  <div class="gate pass"><div class="gh"><b>G2-C2 · First leaderboard signal</b><span class="tb">W2 · by Oct 3</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>G1 passed; strong baseline stable locally.</dd>
+      <dt>Evidence required</dt><dd>1 full public-eval submission (query-budget logged); harness prediction within ±1.5pp of returned LB score; semi-private LB position recorded.</dd>
+      <dt>Pass rule</dt><dd>LB score ≥ 12% (2025's 3rd-place region) or within 1.5pp of harness prediction — both mean "our validation is honest".</dd>
+      <dt>Kill rule</dt><dd>If LB ≪ harness prediction (gap &gt; 3pp) → stop all tuning; investigate overfitting/leakage/runtime-truncation before any further experiment.</dd>
+    </dl>
+  </div>
+
+  <div class="gate pass"><div class="gh"><b>G3-C2 · Experimentation harvest + ablation freeze</b><span class="tb">W4 · by Oct 17 — C2 FREEZE</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>G2 passed; E06/E07/E08 (and any P2s that earned runtime) completed.</dd>
+      <dt>Evidence required</dt><dd>E11 ablation matrix complete (2 seeds on small-Δ rows); every ledger entry has a keep/modify/discard verdict; final config assembled from kept components only.</dd>
+      <dt>Pass rule</dt><dd>Final config Δ ≥ +8pp over B0 cumulatively on V; no component with Δ ≤ 0; config documented.</dd>
+      <dt>Kill rule</dt><dd>Any component failing → removed at freeze; ideas unfinished by Oct 17 are <b>deferred to the paper's future-work section</b>, not smuggled into the final run.</dd>
+    </dl>
+  </div>
+
+  <div class="gate warn"><div class="gh"><b>G4-C2 · Final submission strategy locked</b><span class="tb">W6 · by Oct 31</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>G3 frozen; E12 robustness green; E10 margin test green.</dd>
+      <dt>Evidence required</dt><dd>Final notebook committed from cold start; full 12h dry run ≤ 11.5h; 2 final submission slots chosen by pre-registered rule (slot 1 = full system; slot 2 = highest-variance-reduced variant, e.g. consensus-only); submission ledger complete; repro package staged (Grand Prize artifacts due within 7 days of Nov 2).</dd>
+      <dt>Pass rule</dt><dd>Both slots submitted by Oct 31 (48h buffer before Nov 2 deadline).</dd>
+      <dt>Kill rule</dt><dd>If margin test fails → strip the heaviest component (documented) rather than risk a timeout on the only run that counts.</dd>
+    </dl>
+  </div>
+
+  <div class="callout"><b>Gate discipline.</b> Each gate review = 30 min, ledger open, three outcomes only: PASS (advance) / HOLD (one named fix, re-review in ≤48h) / FAIL (kill rule executes). "HOLD" cannot be used twice on the same gate. <span class="b r">RECOMMENDATION</span></div>
+</section>
+
+<!-- ============ 6. COMPETITION 3 STRATEGY ============ -->
+<section id="s6">
+  <h2><span class="num">06</span>Competition 3 Strategy — ARC-AGI-3</h2>
+  <p class="lede">Objective: maximize score across 110 hidden interactive games — completion first, action efficiency second — inside a 9-hour no-internet notebook. Phase window: <b>Oct 17 → Nov 2</b> main sprint (plus a small W0–W2 observer stream + Sep 30 Milestone-2 decision).</p>
+
+  <h3><span class="mini">6.1</span>Verified competition brief</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Item</th><th>Verified value</th><th>Status / source</th></tr>
+    <tr><td>Task</td><td>First interactive reasoning benchmark: agents explore hand-crafted novel games with <b>no instructions</b>; must explore, model, set goals, and plan. Host names 4 capabilities: Exploration · Modeling · Goal-setting · Planning &amp; Execution.</td><td><span class="b f">FACT</span> arcprize.org/competitions/2026/arc-agi-3</td></tr>
+    <tr><td>Environment</td><td>Frames = JSON with grid ≤ <b>64×64</b>, cell values <b>0–15</b>, (0,0) top-left; game states NOT_FINISHED / WIN / GAME_OVER; per-game multi-level structure of increasing difficulty.</td><td><span class="b f">FACT</span> Kaggle Data page</td></tr>
+    <tr><td>Actions</td><td>Up to 7: <span class="mono">RESET</span>, <span class="mono">ACTION1–5</span> (simple), <span class="mono">ACTION6</span> (complex, needs (x,y)), <span class="mono">ACTION7</span>. Meaning of actions <b>varies per game</b> and must be discovered; each response lists <span class="mono">available_actions</span>.</td><td><span class="b f">FACT</span> Kaggle Data + docs.arcprize.org</td></tr>
+    <tr><td>Scoring</td><td>Per-level: <span class="mono">min(human_actions / agent_actions, 1.0)</span> then <b>squared</b> · Per-game: level-index-weighted average (1-indexed) · Total: average across games · capped at 100% (100% = beat every game matching human action counts). Completion (levels) + Efficiency (actions vs first-time human baseline).</td><td><span class="b f">FACT</span> Kaggle Data page (scoring methodology)</td></tr>
+    <tr><td>Eval games</td><td><b>110 private games</b>; half → public LB, half → private LB. 25 public game files ship with the competition (environment_files/) for development.</td><td><span class="b f">FACT</span></td></tr>
+    <tr><td>Toolkit</td><td><span class="mono">arc-agi</span> Python package; ARC-AGI-3-Agents repo: agent implements <span class="mono">is_done(frames, latest_frame)</span> + <span class="mono">choose_action(frames, latest_frame)</span>; a <b>Swarm</b> orchestrates agents across games; scorecard lifecycle (open → play → close).</td><td><span class="b f">FACT</span> Kaggle Data page</td></tr>
+    <tr><td>Compute</td><td>CPU ≤ 9h, GPU ≤ 9h · internet disabled · external public data/pretrained models allowed · RTX 6000 pool (g4-standard-48) restricted to this competition · submission file auto-generated once the agent acts on any game.</td><td><span class="b f">FACT</span> Kaggle Code Requirements</td></tr>
+    <tr><td>Timeline</td><td>M1 Jun 30 (passed) · <b>M2 Sep 30</b> (public open-source notebook required) · Entry/merger Oct 26 · Final <b>Nov 2</b>.</td><td><span class="b f">FACT</span></td></tr>
+    <tr><td>Prizes</td><td>$850K = final LB $75K (40/15/10/5/5K) + milestones $75K (M2: 25/7.5/5K per Kaggle; arcprize.org lists 25/10/2.5K — <span class="b v">VERIFY exact split</span>) + Grand $700K at 100% (splits top-5, rolls forward if unmet).</td><td><span class="b f">FACT</span> + <span class="b v">VERIFY</span></td></tr>
+    <tr><td>Cost rule</td><td>Efficiency is scored against human action counts and <b>squared</b> — wasted actions are punished super-linearly once a level is completed.</td><td><span class="b f">FACT</span> (formula)</td></tr>
+  </table></div>
+
+  <h3><span class="mini">6.2</span>Carry-over audit from Competition 2</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>From C2</th><th>Carries over?</th><th>How / why</th></tr>
+    <tr><td>Experiment discipline (hypothesis → validation → verdict)</td><td><span class="b okb">YES</span></td><td>Identical loop; only the metric changes (progress/efficiency vs exact-match).</td></tr>
+    <tr><td>Scorer-parity harness methodology</td><td><span class="b okb">YES</span></td><td>Rebuild parity vs official scoring formula on public games (C3-E01) — same doctrine, new formula.</td></tr>
+    <tr><td>Selection/calibration mindset</td><td><span class="b okb">YES</span></td><td>Now applied to actions: when to trust a predicted transition, when to spend actions probing.</td></tr>
+    <tr><td>Compute budgeting + early-exit</td><td><span class="b okb">YES</span></td><td>9h across ~55 LB games ⇒ hard per-game budget ≈ 8–10 min; reuse budget scheduler patterns.</td></tr>
+    <tr><td>Local open-weight model serving</td><td><span class="b okb">YES</span></td><td>Same no-internet constraint; same weight-bundling discipline.</td></tr>
+    <tr><td>Grid TTT + augmentation voting pipeline</td><td><span class="b r">PARTIAL</span></td><td>Augmentation voting does not transfer (no ground-truth outputs to vote on); TTT reappears only as online adaptation to observed transitions.</td></tr>
+    <tr><td>Static program-synthesis loop</td><td><span class="b r">PARTIAL</span></td><td>Reused as <i>transition-rule induction</i>: induce "what ACTIONk does in context C" from observed frame pairs — a program-synthesis problem over deltas.</td></tr>
+    <tr><td>Pass@2 selection machinery</td><td><span class="b okb">NO</span></td><td>Nothing to "attempt twice"; replaced by exploration policies + action-choice ensembling.</td></tr>
+    <tr><td>Synthetic data generators (grid rules)</td><td><span class="b r">PARTIAL</span></td><td>Grid-rendering utilities reuse; but generators must model dynamics (before/after), not static I/O pairs.</td></tr>
+  </table></div>
+
+  <h3><span class="mini">6.3</span>Where score comes from (first principles, interactive edition)</h3>
+  <p>Total = mean over games of level-weighted level-scores. A game scores <b>0 until its first level is completed</b> — completion dominates; the squared efficiency term only matters <i>after</i> completion. Therefore the doctrine is:</p>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Principle</th><th>Derived from</th><th>Mechanism</th></tr>
+    <tr><td><b>1. Completion before efficiency</b></td><td><span class="mono">min(h/a,1)²</span> is 0 with no completion</td><td>Never trade a completion chance for action frugality; optimize actions only within a solved level's replay, or when actions do not risk progress.</td></tr>
+    <tr><td><b>2. Early levels carry the game</b></td><td>level-index weighting (1-indexed)</td><td>Later levels weigh more, but are unreachable without early ones; secure level 1–2 reliably before investing in depth strategies.</td></tr>
+    <tr><td><b>3. Actions are the budget</b></td><td>efficiency term + 9h wall-clock</td><td>Every action must buy information (exploration value) or progress (goal value); a default policy of "cheap probes, expensive commitments".</td></tr>
+    <tr><td><b>4. Memory is compound interest</b></td><td>multi-level games, RESET availability</td><td>Knowledge of action semantics learned at level k must persist to level k+1 and across RESETs — relearning is pure efficiency loss.</td></tr>
+    <tr><td><b>5. Determinism is a hypothesis to test</b></td><td>games are rule-based</td><td>Same action, same context ⇒ same effect (verify, don't assume); non-determinism detected early prevents wasted planning.</td></tr>
+  </table></div>
+
+  <h3><span class="mini">6.4</span>Strategy pillars (C3)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Pillar</th><th>Pr.</th><th>Content</th><th>Score lever</th></tr>
+    <tr><td><b>Q-A · Instrumented harness &amp; scorer parity</b></td><td><span class="b p0">P0</span></td><td>arc-agi toolkit + local runner against 25 public games; full replay logging (every frame, action, timestamp); local scorer replicating the official formula exactly.</td><td>Measurability of everything else.</td></tr>
+    <tr><td><b>Q-B · Baseline agent ladder</b></td><td><span class="b p0">P0</span></td><td>Random → systematic action-sweep → greedy-progress agents; establishes floor + exposes per-game diversity of mechanics.</td><td>Calibrates all deltas; already a submission-worthy floor.</td></tr>
+    <tr><td><b>Q-C · Structured state + memory</b></td><td><span class="b p1">P1</span></td><td>Frame → object/region extraction, frame-diff summaries; per-game hypothesis ledger (action, context, effect, confidence) persisted across levels and RESETs.</td><td>Exploration + memory compound interest.</td></tr>
+    <tr><td><b>Q-D · Exploration policy</b></td><td><span class="b p1">P1</span></td><td>Action-sweep with counterfactual probes (apply twice → determinism check), novelty/frontier bonuses, context-conditioned effect mapping.</td><td>Turns actions into information cheaply.</td></tr>
+    <tr><td><b>Q-E · World model &amp; planning</b></td><td><span class="b p2">P2</span></td><td>Predict-before-act transition model (symbolic rules and/or small net); plan toward observed progress events (level transitions, WIN detection).</td><td>Fewer wasted actions; deeper levels.</td></tr>
+    <tr><td><b>Q-F · Runtime &amp; per-game budget</b></td><td><span class="b p0">P0</span></td><td>9h / ~55 games budget scheduler; per-game wall-clock cap with graceful hand-off; local model batching.</td><td>Legal submission + coverage of all games.</td></tr>
+  </table></div>
+
+  <h3><span class="mini">6.5</span>External signals to mine (not fabricated — read &amp; verify)</h3>
+  <ul>
+    <li><span class="b o">OBSERVATION</span> OpenAI published "How enabling two settings tripled our scores on the ARC-AGI-3" (Jul 2026) — <span class="b v">VERIFY</span> content on openai.com; extract both settings; test locally as C3 experiments if compatible with no-internet constraints.</li>
+    <li><span class="b o">OBSERVATION</span> Symbolica claimed "0% → 36% on Day 1" with an SDK on the 25 <i>public</i> games (unverified, self-reported; public-games score ≠ private-eval score). Treat as an existence proof that structured agents score double-digits early.</li>
+    <li><span class="b f">FACT</span> A preprint on programmatic world models for ARC-AGI-3 exists (arXiv 2607.28287, Jul 2026) — mine as related work + candidate mechanism for Q-E.</li>
+    <li><span class="b f">FACT</span> Tufa Labs leads the public LB at 11.04 (2026-09-12) — the bar for top-5 is currently single-digit; completion-first designs plausibly clear it.</li>
+  </ul>
+
+  <div class="callout"><b>Mistakes from C2 we will not repeat (registered in §12):</b> ① building score-dependent code before scorer parity (E01 first, always); ② leaving submission-pipeline validation late; ③ tuning against feedback loops we can't afford (public LB query budgets exist here too — public-LB games are half the eval, and per-action logs are our real feedback); ④ runtime optimism without cold-start dry runs; ⑤ exploring low-impact cleverness (e.g., exotic world models) before the completion-first basics are saturated.</div>
+
+  <div class="callout green"><b>Validation doctrine (C3).</b> No ground-truth answers exist — validation = <b>replay determinism + local score parity</b> on public games. Protocol: every agent run logs frames/actions; reruns with fixed seeds must produce identical trajectories (env permitting — <span class="b v">VERIFY determinism</span>); scorer parity tested against one official scorecard; all agent comparisons use the same public-game subset + same action budgets, paired per game. Never conclude from one game.</div>
+</section>
+<!-- ============ 7. C3 EXPERIMENT ROADMAP ============ -->
+<section id="s7">
+  <h2><span class="num">07</span>Competition 3 — Experiment Roadmap</h2>
+  <p class="lede">Same contract as §4: one question per experiment, pre-registered validation, keep/modify/discard verdicts. Metric: mean level-weighted per-game score on the 25 public games (proxy for hidden 110), paired per game.</p>
+
+  <div class="ladder">
+    <span class="st hot">Understand env</span><span class="ar">→</span>
+    <span class="st hot">Harness parity</span><span class="ar">→</span>
+    <span class="st">Baseline agents</span><span class="ar">→</span>
+    <span class="st">Hypothesis sprints</span><span class="ar">→</span>
+    <span class="st">Measure &amp; ablate</span><span class="ar">→</span>
+    <span class="st">Optimize budget</span><span class="ar">→</span>
+    <span class="st">Validate replays</span><span class="ar">→</span>
+    <span class="st">Final system</span><span class="ar">→</span>
+    <span class="st">Submit + writeup</span>
+  </div>
+
+  <h3><span class="mini">7.1</span>Master experiment table (C3)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>ID</th><th>Pr.</th><th>Question it answers</th><th>Done</th></tr>
+    <tr><td class="eid">C3-E01</td><td><span class="b p0">P0</span></td><td>Does my local scorer + replay harness replicate the official scoring formula exactly on public games?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E02</td><td><span class="b p0">P0</span></td><td>What do random / sweep / greedy-progress baselines actually score (the floor)?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E03</td><td><span class="b p1">P1</span></td><td>Does structured state (objects + frame diffs) beat raw grids for decision quality?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E04</td><td><span class="b p1">P1</span></td><td>Which exploration policy buys the most level-progress per action?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E05</td><td><span class="b p1">P1</span></td><td>Does a persistent per-game action-semantics memory reduce relearning across levels/RESETs?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E06</td><td><span class="b p2">P2</span></td><td>Does predict-before-act (world model) cut wasted actions?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E07</td><td><span class="b p1">P1</span></td><td>Which goal/progress heuristic best converts exploration into completed levels?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E08</td><td><span class="b p2">P2</span></td><td>How much score does the squared efficiency term actually hold, and when should we farm it?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E09</td><td><span class="b p2">P2</span></td><td>Does per-game strategy selection (portfolio over agent variants) beat any single strategy?</td><td><input type="checkbox"></td></tr>
+    <tr><td class="eid">C3-E10</td><td><span class="b p0">P0</span></td><td>Can the full agent cover ~55 games in ≤ 8.5h wall-clock with margin?</td><td><input type="checkbox"></td></tr>
+  </table></div>
+
+  <h3><span class="mini">7.2</span>Full experiment protocols (C3)</h3>
+
+  <details class="exp" open><summary><span class="eid">C3-E01</span> Harness + scorer parity <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: can I trust every local number before building any agent logic?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Local implementation of per-level <span class="mono">min(h/a,1)²</span> → level-index-weighted per-game mean → game mean, run on public-game scorecards, matches official scoring bit-for-bit.</dd>
+      <dt>Why first</dt><dd>All C3 deltas are computed by this scorer; a wrong formula silently misdirects every optimization (e.g., weighting levels wrong).</dd>
+      <dt>Implementation</dt><dd>Wrap <span class="mono">arc-agi</span> toolkit; replay logger (frames, actions, wall-clock); scorer with human-baseline action counts for the 25 public games (<span class="b v">VERIFY</span> whether human baselines are published/derivable — if unavailable for public games, calibrate on relative scores); unit tests for the squared-cap and weighting edge cases (level 0 completions, GAME_OVER mid-level).</dd>
+      <dt>Expected signal</dt><dd>Scorer reproduces reference scorecards (official samples / toolkit examples) exactly; determinism test: same seed → identical replay.</dd>
+      <dt>Validation</dt><dd>Unit tests + one official scorecard comparison; env-determinism probe (RESET → repeat action sequence → same frames?).</dd>
+      <dt>Failure condition</dt><dd>Formula mismatch; environment non-determinism (log it — changes all comparison methodology).</dd>
+      <dt>Decision rule</dt><dd><b>Blocker for everything else.</b> If human baselines unavailable locally, adopt a fixed pseudo-baseline constant and document it as proxy (all deltas remain valid, absolute numbers don't).</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E02</span> Baseline agent ladder <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: what is the floor — and what does the game distribution look like?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Random &lt; systematic sweep &lt; greedy-progress on mean score; per-game variance is huge (some games yield to sweeps, most don't).</dd>
+      <dt>Why first</dt><dd>Floor + game taxonomy: which games are "movement puzzles" vs "mechanism discovery" vs "timing" — this taxonomy directs every later experiment.</dd>
+      <dt>Implementation</dt><dd>Agent A: uniform random legal action. Agent B: exhaustive action sweep with RESET cycling (map which actions change state where). Agent C: sweep + repeat actions that changed state (crude progress heuristic). All on 25 public games, capped action budgets ×3 tiers.</dd>
+      <dt>Expected signal</dt><dd>Agent C &gt; Agent A by clear margin on ≥ 1/3 of games; per-game mechanics table produced.</dd>
+      <dt>Validation</dt><dd>2 seeds per agent (if env deterministic → 1 run + spot replay check); paired per-game deltas.</dd>
+      <dt>Failure condition</dt><dd>All agents score ~0 everywhere → examine frame semantics/handling before any cleverness (likely a representation bug).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> Agent C as floor baseline B0-C3; publish the game-taxonomy table in the ledger.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E03</span> Structured state representation <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: do objects + frame diffs give decisions raw grids can't?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Extracting objects/regions (connected components on value classes) + frame-diff events (what moved/appeared/disappeared where) as the agent's observation raises progress ≥ +20% relative over raw-grid decisions on B0-C3.</dd>
+      <dt>Why improve</dt><dd>64×64×16 raw frames bury causality; diffs localize "what ACTIONk just did", which is the actual signal for rule induction and goal detection.</dd>
+      <dt>Implementation</dt><dd>Perception module: connected components, value histograms, symmetric-region detection; diff engine: frame_{t} vs frame_{t−1} → event list; agent consumes structured summary (+ optional local VLM/text model for scene description, weights bundled).</dd>
+      <dt>Expected signal</dt><dd>Δ progress vs B0-C3 on paired games; event logs show stable action→effect mappings.</dd>
+      <dt>Validation</dt><dd>Paired per-game comparison, same action budgets; ablate (raw vs structured) × (with/without local model).</dd>
+      <dt>Failure condition</dt><dd>Perception errors mislead the agent (e.g., missed objects) — measure perception precision on 20 hand-checked frames first.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> structured state if Δ ≥ +20% relative; keep local-model describer only if it adds Δ beyond pure geometric features.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E04</span> Exploration policy comparison <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: which policy converts actions into information fastest?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Counterfactual probing (apply candidate action; if state changed, repeat in same context to test determinism; log context→effect) + novelty-biased frontier selection beats uniform sweep on levels-reached per 100 actions.</dd>
+      <dt>Why improve</dt><dd>Information gain per action is the currency of the efficiency term; probing converts blind search into hypothesis testing.</dd>
+      <dt>Implementation</dt><dd>Policies: P-random / P-sweep / P-probe (determinism tests + effect mapping) / P-frontier (prefer actions near unexplored state-space regions); run each on all 25 public games at fixed budgets.</dd>
+      <dt>Expected signal</dt><dd>P-probe or P-frontier &gt; P-sweep by ≥ +15% on levels-per-100-actions; effect maps reach high coverage with fewer RESETs.</dd>
+      <dt>Validation</dt><dd>Paired per game × budget tier; coverage curves (actions vs % state-space mapped).</dd>
+      <dt>Failure condition</dt><dd>Probe overhead (extra actions for testing) exceeds its information value on short-action budgets.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> best policy overall; consider budget-conditional policy (probe early, exploit late) as the modified winner.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E05</span> Persistent action-semantics memory <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does remembering action semantics across levels/RESETs compound into score?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>A per-game persistent store (context signature → action → predicted effect + confidence + counter-evidence) that survives level transitions and RESETs reduces actions-to-reach-level-k and lifts late-level progress.</dd>
+      <dt>Why improve</dt><dd>Games are multi-level with consistent engine semantics; relearning is pure efficiency loss and the squared term + level weighting amplify it.</dd>
+      <dt>Implementation</dt><dd>Memory keyed by (grid-region signature, action) → effect record; confidence updates on confirmation/contradiction; injected into agent decision context; memory reset only on GAME_OVER (game restart), not level change.</dd>
+      <dt>Expected signal</dt><dd>Actions-to-level-2/3 ↓ vs no-memory control on multi-level games; memory hit-rate (predictions confirmed) &gt; 70%.</dd>
+      <dt>Validation</dt><dd>Ablate memory on/off, paired; audit 10 memory reads manually for correctness.</dd>
+      <dt>Failure condition</dt><dd>Stale/contradicted memories steering the agent wrong (hit-rate &lt; 50%) — then add contradiction-triggered invalidation.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> if Δ &gt; 0 on multi-level subset; <b>modify</b> confidence decay once if hit-rate middling; else simplify.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E06</span> World model: predict-before-act <span class="b p2">P2</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does simulating candidate actions before committing cut wasted actions?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>A transition model (symbolic rules from E03/E05 memory, optionally a small learned net) used to filter actions predicted to be no-ops/harmful reduces wasted-action % ≥ 20% with neutral-or-positive progress.</dd>
+      <dt>Why improve</dt><dd>Wasted actions directly tax the efficiency term and the 9h budget; prediction converts exploration budget into planned progress.</dd>
+      <dt>Implementation</dt><dd>Rule table: (context signature, action) → expected diff; optional small net trained online per game on observed transitions (feasible within runtime — <span class="b v">VERIFY</span>); agent ranks actions by predicted progress, falls back to exploration when predictions low-confidence.</dd>
+      <dt>Expected signal</dt><dd>Wasted-action % ↓; progress Δ ≥ 0; per-game prediction accuracy logged.</dd>
+      <dt>Validation</dt><dd>Paired on/off; manual audit of 20 predictions per game family.</dd>
+      <dt>Failure condition</dt><dd>Model confidently wrong → agent loops (add loop-detector + forced exploration escape).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> if wasted-action ↓ ≥ 20% &amp; progress Δ ≥ 0; <b>restrict</b> to high-confidence contexts otherwise; else discard.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E07</span> Goal inference &amp; progress heuristics <span class="b p1">P1</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: which proxy for "progress toward WIN" best guides planning without instructions?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Combining observable progress events (level-transition frames, WIN/GAME_OVER states, newly-reachable regions) into a rankable goal score beats raw novelty for converting exploration into completed levels.</dd>
+      <dt>Why improve</dt><dd>The host explicitly tests goal-setting; agents that wait for novelty signals stall on games requiring directed sub-goals (e.g., collect-then-deliver patterns).</dd>
+      <dt>Implementation</dt><dd>Goal scorer over candidate states: Δ reachability, Δ collected/changed objects, transition-event adjacency; plan (BFS/greedy over predicted transitions from E06) toward top-scored states.</dd>
+      <dt>Expected signal</dt><dd>Completed-levels ↑ on games where E02 agents reached level 1 but stalled at level 2.</dd>
+      <dt>Validation</dt><dd>Paired vs E04-winner-without-goals; stratify by game taxonomy from E02.</dd>
+      <dt>Failure condition</dt><dd>Goal proxies exploit game quirks (e.g., farming reversible transitions) without real progress.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> winning heuristic set; <b>modify</b> weights once; else revert to exploration-only.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E08</span> Efficiency farming (post-completion) <span class="b p2">P2</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: when and how should the agent minimize actions on levels it can already solve?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>After a level is first completed, replaying it with memory-guided shortest-known action sequences (and skipping re-solved levels after RESET where the engine allows) raises per-game score with zero completion risk.</dd>
+      <dt>Why improve</dt><dd>The squared min(h/a,1) term means cutting actions from 2h→h moves a level's score 0.25→1.0 — the single biggest per-level multiplier available <i>after</i> completion.</dd>
+      <dt>Implementation</dt><dd>Store successful action sequences per level; on re-entry (RESET/level retry), replay compressed sequence; opportunistic shortcut search only when action budget is idle.</dd>
+      <dt>Expected signal</dt><dd>Score-formula replay shows Δ &gt; 0 with completion counts unchanged.</dd>
+      <dt>Validation</dt><dd>Offline replay of logged trajectories through E01 scorer (no env risk).</dd>
+      <dt>Failure condition</dt><dd>Shortcut attempts that fail mid-way and cost completions (gate shortcuts behind memory confidence ≥ threshold).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> if formula-replay Δ ≥ +0.5 absolute points on any game and 0 completion regressions.</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E09</span> Per-game strategy portfolio <span class="b p2">P2</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: does selecting the strategy per game beat any single global strategy?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Game features observed in the first N actions (grid size, action-count, state-change rate) predict which strategy family (probe-heavy vs goal-directed vs memory-replay) scores best; routing by these features beats the global winner on mean score.</dd>
+      <dt>Why improve</dt><dd>E02's taxonomy will show heterogeneous game types; a single policy is a compromise across them (the ensembling lesson from C2, transposed).</dd>
+      <dt>Implementation</dt><dd>First-pass feature probe (cheap); router maps features → strategy; router trained on logged per-game results from E03–E07 runs (no new env cost).</dd>
+      <dt>Expected signal</dt><dd>Router mean score &gt; best single strategy on held-out game subset (leave-games-out CV).</dd>
+      <dt>Validation</dt><dd>Leave-games-out on 25 public games; check router never picks a strategy that scores 0 on similar games.</dd>
+      <dt>Failure condition</dt><dd>Overfit routing on 25 games (small n) — require ≥ 3 games per routing rule.</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> router only if it beats global-best with leave-games-out margin; else keep global best (simplicity wins at small n).</dd>
+    </dl>
+  </div></details>
+
+  <details class="exp"><summary><span class="eid">C3-E10</span> Runtime budget engineering (9h) <span class="b p0">P0</span><span class="ar">open ▾</span></summary><div class="body">
+    <div class="q">Question: can the final agent cover ~55 public-LB games in ≤ 8.5h with margin?</div>
+    <dl class="proto">
+      <dt>Hypothesis</dt><dd>Per-game wall-clock caps (≈ 8–9 min), early hand-off on stuck games, and batched local-model calls keep full-suite runtime ≤ 8.5h while costing &lt; 1% score.</dd>
+      <dt>Why improve</dt><dd>The 9h cap is hard; a timeout mid-suite forfeits all remaining games — coverage failure is the most expensive failure mode in C3.</dd>
+      <dt>Implementation</dt><dd>Budget scheduler (port from C2 E10); stuck-detectors (no state change in N actions → RESET or hand off); model-call batching; per-game time ledger in replay logs.</dd>
+      <dt>Expected signal</dt><dd>Full 25-game replay ×2 within target per-game times; extrapolated 55-game total ≤ 8.5h.</dd>
+      <dt>Validation</dt><dd>Two cold-start full replays; variance ≤ 5%.</dd>
+      <dt>Failure condition</dt><dd>Any game family consistently blowing its cap (then cap-aware strategy switching, not more compute).</dd>
+      <dt>Decision rule</dt><dd><b>Keep</b> schedule that passes twice; treat as blocker for G3-C3.</dd>
+    </dl>
+  </div></details>
+</section>
+
+<!-- ============ 8. C3 DECISION GATES ============ -->
+<section id="s8">
+  <h2><span class="num">08</span>Competition 3 — Decision Gates</h2>
+  <p class="lede">Same discipline as §5. Note the special early gate: the Milestone-2 go/no-go (Sep 30) is a <i>business</i> decision, not a technical one — it trades C2 focus for a guaranteed-pool lottery ticket.</p>
+
+  <div class="gate warn"><div class="gh"><b>G-M2 · Milestone 2 go/no-go (opportunity gate)</b><span class="tb">Decide Sep 14 · execute by Sep 30</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>W0 observer stream (10% time): toolkit running, E01 started, one trivial public agent exists.</dd>
+      <dt>Evidence required</dt><dd>Honest estimate: can a legitimate open-source agent (baseline ladder, documented) be public by Sep 29 without moving any C2 gate?</dd>
+      <dt>Pass rule (GO)</dt><dd>C2 remains on schedule (G0 green by Sep 19) AND a minimal C3 notebook can be public by Sep 29 → publish, claim eligibility, return to C2.</dd>
+      <dt>Kill rule (NO-GO)</dt><dd>Any C2 slippage → skip M2 formally, log the decision; M2 prize money is $37.5K-tier exposure, not worth a C2 gate slip. Revisit only if C2 runs ahead.</dd>
+    </dl>
+  </div>
+
+  <div class="gate pass"><div class="gh"><b>G0-C3 · Harness parity &amp; environment truth</b><span class="tb">by Oct 21</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>C2 freeze (Oct 17) executed; observer-stream infra exists.</dd>
+      <dt>Evidence required</dt><dd>E01 scorer parity green; env determinism verified (or logged as non-deterministic with comparison protocol adjusted); replay logs flowing; E02 baseline table produced.</dd>
+      <dt>Pass rule</dt><dd>Scorer matches reference; baseline ladder complete on all 25 public games.</dd>
+      <dt>Kill rule</dt><dd>If toolkit/infra is broken beyond Oct 21 → triage: reduce scope to "baseline agent + runtime-fit" (Tier-1 objective) and cut experimental ambitions accordingly.</dd>
+    </dl>
+  </div>
+
+  <div class="gate pass"><div class="gh"><b>G1-C3 · Intelligence above the floor</b><span class="tb">by Oct 26</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>G0-C3 passed; E03/E04/E05 done.</dd>
+      <dt>Evidence required</dt><dd>Best structured agent Δ vs B0-C3 (Agent C) on paired public games, with per-game breakdown and mechanism attribution (which lever bought which game's progress).</dd>
+      <dt>Pass rule</dt><dd>Δ ≥ +20% relative mean progress AND ≥ 3 games where structured agent completes a level the baseline cannot.</dd>
+      <dt>Kill rule</dt><dd>If structured state fails but probing alone works → simplify to best policy + memory; kill unused pillars without sentiment.</dd>
+    </dl>
+  </div>
+
+  <div class="gate pass"><div class="gh"><b>G2-C3 · Full-system validation</b><span class="tb">by Oct 30</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>G1-C3 passed; E06–E09 resolved (kept or killed).</dd>
+      <dt>Evidence required</dt><dd>E10 double cold-start replay ≤ 8.5h; kept components ablated; final config frozen; open-source license + repo clean for public attach.</dd>
+      <dt>Pass rule</dt><dd>Runtime green ×2; config documented; repro checklist (§13) C3-half ticked.</dd>
+      <dt>Kill rule</dt><dd>Runtime failure → strip heaviest component (usually the local model describer) before losing coverage.</dd>
+    </dl>
+  </div>
+
+  <div class="gate warn"><div class="gh"><b>G3-C3 · Submission locked</b><span class="tb">by Oct 31 (with C2)</span></div>
+    <dl>
+      <dt>Entry criteria</dt><dd>G2-C3 passed.</dd>
+      <dt>Evidence required</dt><dd>Final notebook committed; agent completes ≥ 1 action on every game (auto submission-file rule <span class="b f">FACT</span>); writeup assets (replay videos, score tables) exported for the paper track.</dd>
+      <dt>Pass rule</dt><dd>Submission accepted by Oct 31 — 48h buffer before Nov 2.</dd>
+      <dt>Kill rule</dt><dd>n/a — this is the delivery gate; failures here are fixed, not killed.</dd>
+    </dl>
+  </div>
+</section>
+<!-- ============ 9. COMPETITION → RESEARCH TRANSITION ============ -->
+<section id="s9">
+  <h2><span class="num">09</span>Competition → Research Transition</h2>
+  <p class="lede">The paper is not a separate project — it is the competition ledger, reorganized into an argument. This section maps findings → research questions → paper assets, and states honestly where competition evidence is not enough for publication.</p>
+
+  <h3><span class="mini">9.1</span>Research questions (distilled from the campaign)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>RQ</th><th>Question</th><th>Answered by</th><th>Status today</th></tr>
+    <tr><td><b>RQ1</b></td><td>Under fixed Kaggle compute, how much pass@2 accuracy does <b>calibrated 2-attempt selection</b> recover from a fixed candidate pool, vs standard top-vote?</td><td>C2-E04 → E07 → E13 + E11 ablation</td><td><span class="b h">HYPOTHESIS</span> — experiment required (this is our main novel claim candidate)</td></tr>
+    <tr><td><b>RQ2</b></td><td>Do synthetic generators <b>targeted at named capability axes</b> (symbolic / compositional / contextual) transfer better than generic ARC-style data?</td><td>C2-E06 + error-bucket shifts + E11</td><td><span class="b h">HYPOTHESIS</span> — partial existing evidence (NVARC), our axis-targeting is new</td></tr>
+    <tr><td><b>RQ3</b></td><td>How much does <b>heterogeneous family diversity</b> contribute per runtime-pp under a hard compute cap?</td><td>C2-E08 LOO + cost accounting + E11</td><td><span class="b o">OBSERVATION</span> — direction proven in the field, our per-runtime-pp accounting is the contribution</td></tr>
+    <tr><td><b>RQ4</b></td><td>Do <b>memory-backed exploration policies</b> (persistent action-semantics + predict-before-act) lift interactive benchmark performance under a wall-clock budget?</td><td>C3-E03–E06 + E08 + E09</td><td><span class="b h">HYPOTHESIS</span> — experiment required</td></tr>
+  </table></div>
+
+  <h3><span class="mini">9.2</span>Findings → paper assets mapping</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Competition artifact</th><th>Becomes</th><th>Paper section</th></tr>
+    <tr><td>Scorer-parity harness methodology (E01 both)</td><td>Methods contribution: "evaluation fidelity under obfuscated scoring"</td><td>Experimental setup</td></tr>
+    <tr><td>E04 pass@k curves + error buckets</td><td>Figure: pass@k vs selection gap; bucket taxonomy</td><td>Analysis</td></tr>
+    <tr><td>E07/E13 selector + ablation</td><td>Core method (if RQ1 confirms) + Table: gap-closure %</td><td>Methodology + Results</td></tr>
+    <tr><td>E06 generator families + bucket shifts</td><td>Method + Figure: before/after per capability axis</td><td>Methodology + Analysis</td></tr>
+    <tr><td>E08 LOO solve-overlap matrix</td><td>Table: per-family marginal pp per runtime-pp</td><td>Results / Discussion</td></tr>
+    <tr><td>E11 ablation matrix</td><td>Table 1 (the paper's spine)</td><td>Ablation study</td></tr>
+    <tr><td>E10/E12 runtime + robustness protocols</td><td>Reproducibility statement content</td><td>Setup + Repro</td></tr>
+    <tr><td>C3 game taxonomy (E02) + memory/policy deltas (E05–E09)</td><td>Interactive study: mechanisms, figures from replays</td><td>Methodology + Results (C3 half)</td></tr>
+    <tr><td>Failed experiments (ledger)</td><td>Failure-mode discussion (rubric rewards Theory — why things fail is "why")</td><td>Discussion + Limitations</td></tr>
+  </table></div>
+
+  <h3><span class="mini">9.3</span>Evidence ledger — honest status of every would-be claim</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Claim candidate</th><th>Known results</th><th>Existing evidence</th><th>Our hypothesis</th><th>Experiment still required</th></tr>
+    <tr><td>TTT + augmentation voting works on ARC</td><td>Yes (2024–25 verified)</td><td>Akyürek; ARChitects; MindsAI; NVARC</td><td>Replicates in our stack</td><td>C2-E05 (replication)</td></tr>
+    <tr><td>Selection recovers oracle headroom at pass@2</td><td>No public SOTA claim we can cite</td><td>Anecdotal (voting literature)</td><td><span class="b h">HYPOTHESIS</span> ≥50% of gap</td><td><b>C2-E07 + E13</b></td></tr>
+    <tr><td>Axis-targeted synthetic data transfers</td><td>No</td><td>NVARC credits synthetic data (generic)</td><td><span class="b h">HYPOTHESIS</span> targeted &gt; generic</td><td><b>C2-E06</b></td></tr>
+    <tr><td>Diversity per runtime-pp is the right ensemble budgeting metric</td><td>No</td><td>LOO practice common</td><td><span class="b h">HYPOTHESIS</span></td><td>C2-E08 + E11</td></tr>
+    <tr><td>Persistent action-semantics memory helps interactive play</td><td>No</td><td>General agent literature (not ARC-AGI-3 specific)</td><td><span class="b h">HYPOTHESIS</span></td><td><b>C3-E05 (+E03/E04)</b></td></tr>
+    <tr><td>Predict-before-act cuts wasted actions</td><td>No</td><td>Model-based RL literature</td><td><span class="b h">HYPOTHESIS</span></td><td>C3-E06</td></tr>
+    <tr><td>Per-game strategy routing beats global policy</td><td>No</td><td>Portfolio-agent practice</td><td><span class="b h">HYPOTHESIS</span></td><td>C3-E09</td></tr>
+  </table></div>
+  <div class="callout red"><b>Anti-fabrication rule (hard):</b> nothing enters the paper as a finding unless its ledger row has a measured number + validation method. Claims without numbers stay explicitly labeled as hypotheses or future work. The rubric's Theory criterion rewards explaining <i>why</i> — speculation labeled as speculation is acceptable; unlabeled speculation is not.</div>
+
+  <h3><span class="mini">9.4</span>Where competition evidence is NOT enough (gaps to close for publication)</h3>
+  <ul>
+    <li><b>External validity:</b> private-LB scores alone are not a research result. Required: public-eval + held-out-train results with CIs, and (for the C3 half) results across all 25 public games, not cherry-picked ones. → covered by our validation doctrine (§3.5, §6.4).</li>
+    <li><b>Baselines at matched compute:</b> reviewers will ask "more compute would also help". Required: equal-runtime comparisons (E09's cost curves, E08's per-runtime-pp accounting) — already in our protocol.</li>
+    <li><b>Generality:</b> at least one out-of-distribution probe: run the C2 selector on ARC-AGI-1 public tasks (or ConceptARC) and the C3 agent on its held-out games; report honest transfer. → add as P2 experiments in W5–W6 (C2-X1, C3-X2 in ledger).</li>
+    <li><b>Mechanistic depth:</b> rubric Theory requires "why it works". Required: error-bucket analysis linking each component to specific failure classes it fixes — the E06/E07 bucket machinery provides this.</li>
+    <li><b>Novelty positioning:</b> related-work delta vs TTT (Akyürek), Product-of-Experts (Franzen et al.), TRM, SOAR, programmatic world models (arXiv 2607.28287) must be explicit. → §10.3.</li>
+  </ul>
+</section>
+
+<!-- ============ 10. PAPER ROADMAP ============ -->
+<section id="s10">
+  <h2><span class="num">10</span>Paper Roadmap (Paper Track)</h2>
+  <p class="lede">Deliverable: one Kaggle Writeup ≤ <b>1,500 words</b>, linked to a real submission ID from C2 or C3, with public notebook + media gallery, submitted before <b>Nov 8/9</b>. The rubric is public; the paper is engineered against it — legitimately, by doing the work it rewards.</p>
+
+  <h3><span class="mini">10.1</span>Verified track requirements</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Item</th><th>Verified requirement</th></tr>
+    <tr><td>Format</td><td>Kaggle Writeup (title + subtitle + analysis), ≤1,500 words (over-limit may be penalized); Media Gallery with cover image (required); public notebook attached; optional PDF via Public Project Link. Private resources attached become public after deadline. Must click <b>Submit</b> before the deadline — drafts don't count.</td></tr>
+    <tr><td>Linkage</td><td>Must document your submission for C2 or C3 and provide the submission ID (judges match notebook ↔ submission). Code need not score high to be eligible — but the rubric's Accuracy criterion uses the score.</td></tr>
+    <tr><td>Rubric (6 × 0–5, averaged)</td><td>Accuracy · Universality · Progress · Theory · Completeness · Novelty. Evaluations not shared; ties broken by earlier entry.</td></tr>
+    <tr><td>Prizes</td><td>$450K total: top-3 $50K/$20K/$5K + $375K pool split among papers &gt; 4.5/5. Judges: Mike Knoop, François Chollet.</td></tr>
+    <tr><td>Required content (host's own list)</td><td>Abstract · Intro · Prior work · Approach (algorithm-level) · Results (leaderboard + public-eval scores; <b>do not report train-set performance</b>) · Conclusion. "Shorter and clearer is always better."</td></tr>
+    <tr><td>Dates</td><td>arcprize.org: papers due <b>Nov 8</b>; Kaggle page: <b>Nov 9</b>. Target internal deadline <b>Nov 6</b> — treat Nov 8 as the hard ceiling. <span class="b v">VERIFY</span> the final date on both pages in late Oct.</td></tr>
+  </table></div>
+
+  <h3><span class="mini">10.2</span>Title directions (choose after G3-C2 results — let evidence pick the story)</h3>
+  <ol>
+    <li><b>Selection-first:</b> "Two Guesses: Execution-Grounded Candidate Selection for Abstract Reasoning under Fixed Compute" — if RQ1 confirms with a clean ablation.</li>
+    <li><b>Data-targeting:</b> "Teaching the Three Gaps: Capability-Targeted Synthetic Data for ARC-AGI-2" — if E06 shows bucket-specific transfer.</li>
+    <li><b>Bridging (unique to us):</b> "From Grids to Games: Selection, Memory, and Budget Discipline across ARC-AGI-2 and ARC-AGI-3" — if both tracks mature; strongest Universality story (one framework, two benchmarks). <span class="b r">RECOMMENDATION</span>: default to this if C3 work is non-trivial; judges reward cross-benchmark insight and Universality.</li>
+  </ol>
+
+  <h3><span class="mini">10.3</span>Section plan engineered against the rubric</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Section (words)</th><th>Content</th><th>Rubric criterion served</th></tr>
+    <tr><td>Abstract (120)</td><td>Contribution in one breath: method + headline verified number + why it matters beyond ARC.</td><td>All (first impression)</td></tr>
+    <tr><td>Intro (200)</td><td>What ARC-AGI is, why pass@2 selection / interactive memory is the bottleneck our evidence points to.</td><td>Progress</td></tr>
+    <tr><td>Prior work (180)</td><td>TTT, TRM, SOAR, Product-of-Experts, programmatic world models; explicit delta table (what we add).</td><td>Novelty</td></tr>
+    <tr><td>Approach (350)</td><td>Algorithm-level: harness → generators → TTT → selector → ensemble (C2); state/diff → memory → policies → portfolio (C3). One clean diagram.</td><td>Completeness, Theory</td></tr>
+    <tr><td>Results (350)</td><td>LB + public-eval scores (never train-set); ablation Table 1; per-runtime-pp accounting; C3 progress/efficiency deltas with replay figures.</td><td>Accuracy, Completeness</td></tr>
+    <tr><td>Why it works + failure modes (200)</td><td>Mechanistic explanation per component; error-bucket evidence; what failed and why (from ledger).</td><td>Theory (the differentiator)</td></tr>
+    <tr><td>Limitations + Conclusion (100)</td><td>Honest scope; what we'd run next; artifact availability (CC0/MIT-0, notebook link).</td><td>Universality, Completeness</td></tr>
+  </table></div>
+
+  <h3><span class="mini">10.4</span>Paper pipeline &amp; timeline</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>When</th><th>Step</th><th>Output</th></tr>
+    <tr><td>From Day 0 (continuous)</td><td>Findings inventory: every keep-verdict + figure-worthy log saved to <span class="mono">/paper_assets</span> (tables auto-generated from ledger).</td><td>Living asset folder</td></tr>
+    <tr><td>W7 · Nov 3–4</td><td>Story lock: pick title direction by evidence; outline frozen; asset table mapped to sections.</td><td>Outline + chosen claim set</td></tr>
+    <tr><td>W7 · Nov 5</td><td>Draft v1 (≤1,500 words, hard); figures from replays + score tables.</td><td>Draft</td></tr>
+    <tr><td>W7 · Nov 6</td><td>Rubric self-score (6 criteria, brutal); cut 20% of words; verify submission ID ↔ notebook ↔ writeup linkage; cover image; public notebook cleaned (seeds, README, license).</td><td>Submission-ready writeup</td></tr>
+    <tr><td>Nov 6–7</td><td><b>Submit</b> (buffer before Nov 8/9); archive submitted version + PDF via Public Project Link.</td><td>Submitted ✓</td></tr>
+    <tr><td>Post Dec 4</td><td>Optional: extended arXiv version + workshop submission using the ≤1,500-word writeup as scaffold.</td><td>Extended paper (by-product)</td></tr>
+  </table></div>
+
+  <div class="callout"><b>Abstract strategy:</b> lead with the number and the mechanism ("X% on the hidden ARC-AGI-2 evaluation within Kaggle's 12h budget; we show N pp of this comes from calibrated selection…"), then the bridge claim to C3, then artifact availability. No filler adjectives; the hosts explicitly reward clarity.</div>
+  <div class="callout green"><b>Rubric self-score gate:</b> do not submit below 4.0/5 self-assessed average, with Theory and Novelty ≥ 4. If below, the fix is always more evidence (one more ablation, one more honest failure analysis) — never more adjectives.</div>
+</section>
+<!-- ============ 11. EXPERIMENT TRACKING SYSTEM ============ -->
+<section id="s11">
+  <h2><span class="num">11</span>Experiment Tracking System</h2>
+  <p class="lede">One registry, zero lost experiments. A spreadsheet (CSV/SQLite) + git repo + config snapshots is enough; heavyweight tooling is optional. The rule: <b>if it isn't in the ledger, it didn't happen.</b></p>
+
+  <h3><span class="mini">11.1</span>Experiment record schema (one row per run)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Field</th><th>Example</th><th>Rule</th></tr>
+    <tr><td><span class="mono">ID</span></td><td><span class="mono">C2-E07-r03</span></td><td>Experiment ID + run number; matches §4/§7 cards.</td></tr>
+    <tr><td><span class="mono">date</span></td><td>2026-09-21</td><td>UTC.</td></tr>
+    <tr><td><span class="mono">hypothesis</span></td><td>Selector recovers ≥50% of pass@8−pass@2 gap</td><td>Copied from the card; frozen before the run.</td></tr>
+    <tr><td><span class="mono">change</span></td><td>feature set v2 (added view-agreement)</td><td>Diff vs previous run, one line.</td></tr>
+    <tr><td><span class="mono">setup</span></td><td>V=100 held-out + pubEval120; seed=13,14</td><td>Dataset snapshot hash + seeds.</td></tr>
+    <tr><td><span class="mono">config_sha</span></td><td><span class="mono">a1b2c3…</span></td><td>git commit + config file hash — reproducibility key.</td></tr>
+    <tr><td><span class="mono">metric</span></td><td>pass@2 selected = 21.4% (pubEval)</td><td>Primary metric only; secondaries in notes.</td></tr>
+    <tr><td><span class="mono">delta</span></td><td>+3.1pp vs C2-E07-r02, paired, p≈0.04 (bootstrap)</td><td>Paired on identical task set + seeds.</td></tr>
+    <tr><td><span class="mono">interpretation</span></td><td>view-agreement is the top feature</td><td>2 sentences max, mechanism-level.</td></tr>
+    <tr><td><span class="mono">decision</span></td><td><b>KEEP</b> → selector v2 into final config</td><td>KEEP / MODIFY (with next change) / DISCARD (with reason). Mandatory — no blank verdicts.</td></tr>
+  </table></div>
+
+  <h3><span class="mini">11.2</span>Prioritization rule (anti-chaos)</h3>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Priority</th><th>Meaning</th><th>Rule</th></tr>
+    <tr><td><span class="b p0">P0</span></td><td>Critical — blocks measurability or legality</td><td>Always first. A red P0 freezes all P1+.</td></tr>
+    <tr><td><span class="b p1">P1</span></td><td>High impact on score</td><td>Run when no P0 is red; max 2 concurrent P1 tracks.</td></tr>
+    <tr><td><span class="b p2">P2</span></td><td>Useful, moderate impact</td><td>Only inside their stage window; never displaces a P1.</td></tr>
+    <tr><td><span class="b p3">P3</span></td><td>Exploratory</td><td>Time-boxed (≤1 day); kill without regret.</td></tr>
+    <tr><td colspan="3">Score each candidate weekly: <span class="mono">Priority = Expected Impact (1–5) × Evidence (1–5) × Feasibility (1–5)</span>; run in descending order within the current stage. Rationale recorded when order changes.</td></tr>
+  </table></div>
+
+  <h3><span class="mini">11.3</span>Repo layout &amp; engineering standards</h3>
+  <div class="card"><pre style="font-size:12.5px;line-height:1.6;color:var(--soft);overflow-x:auto">arc-campaign/
+├── configs/            # per-experiment YAML/JSON; every run = config snapshot + git sha
+├── data/               # raw + SHA256SUMS; never mutated in place
+├── src/
+│   ├── harness/        # loaders, scorers (C2 + C3), validators, profilers
+│   ├── c2/             # generators, ttt, selection, ensemble
+│   ├── c3/             # perception, memory, policies, portfolio, scheduler
+│   └── common/         # seeding, logging, budget scheduler
+├── runs/               # one folder per run: config copy + metrics.json + replay logs
+├── ledger/             # experiments.csv + submissions.csv + verdicts
+├── paper_assets/       # tables/figures auto-generated from ledger
+├── notebooks/          # Kaggle submission notebooks (versioned)
+├── LICENSE (CC0 or MIT-0)   # prize eligibility requires permissive open source [FACT]
+└── README.md</pre></div>
+  <ul>
+    <li><b>Seeds:</b> every run records <span class="mono">seed</span>; sampling/fine-tuning/search all seed-derived; 2 seeds mandatory for deltas &lt; 2pp.</li>
+    <li><b>Datasets:</b> versioned by SHA-256; synthetic corpora get generator-config hashes too.</li>
+    <li><b>Checkpoints:</b> per-task TTT checkpoints are ephemeral (disk-bound) but selection statistics are logged; final ensemble weights are archived.</li>
+    <li><b>Submission ledger (separate CSV):</b> <span class="mono">date, comp, notebook_ver, config_sha, LB score, runtime, prediction, |gap|, note</span> — the |gap| column is the LB-overfitting early-warning system (G2-C2 uses it).</li>
+    <li><b>Error buckets (C2):</b> no-program · exec-fail · wrong-shape · wrong-rule-symbolic · wrong-rule-compositional · wrong-rule-contextual · selection-miss (program was in pool, not picked) — the last bucket is the E07 target and a paper figure.</li>
+    <li><b>Error buckets (C3):</b> exploration-stall · semantics-mislearned · memory-miss · goal-misread · plan-error · runtime-starved · efficiency-waste.</li>
+    <li><b>Automated evaluation:</b> one command runs harness + scorer + delta report vs B0; CI runs unit tests (scorer parity, validator, augmentations) on every push.</li>
+  </ul>
+</section>
+
+<!-- ============ 12. RISK REGISTER ============ -->
+<section id="s12">
+  <h2><span class="num">12</span>Risk Register</h2>
+  <p class="lede">Reviewed at every gate. L/I = likelihood / impact (H·M·L). "Trigger" = the observable that says act now.</p>
+  <div class="twrap"><table class="tbl">
+    <tr><th>#</th><th>Risk</th><th>L/I</th><th>Mitigation</th><th>Trigger → action</th></tr>
+    <tr><td>R1</td><td><b>Dual deadline crunch</b> — both tracks due Nov 2; sequential plan slips</td><td>H/H</td><td>Hard freeze dates (Oct 17 C2 / Oct 31 both); gates hold the line; scope cuts pre-agreed (E14/E09 first out)</td><td>Any gate HOLD → execute its kill rule, don't renegotiate dates</td></tr>
+    <tr><td>R2</td><td><b>Entry/merger deadline miss (Oct 26)</b></td><td>L/H</td><td>Accept rules on all three tracks on Day 0</td><td>— (eliminated by action, not monitoring)</td></tr>
+    <tr><td>R3</td><td><b>Leaderboard overfitting</b> via public-eval / semi-private queries</td><td>H/M</td><td>Query budget (≤2 full runs/wk) logged in submission ledger; primary validation = held-out train split</td><td>|LB − predicted| &gt; 3pp → G2-C2 kill: stop tuning, audit leakage</td></tr>
+    <tr><td>R4</td><td><b>Runtime bust</b> on final evaluation (±10 min obfuscation variance <span class="b f">FACT</span>)</td><td>M/H</td><td>11.5h target for a 12h cap; 8.5h target for 9h; cold-start dry runs ×2 (E10/E12)</td><td>Dry run &gt; target → strip heaviest component (pre-registered order)</td></tr>
+    <tr><td>R5</td><td><b>GPU quota exhaustion</b> (L4×4 burns 2× quota <span class="b f">FACT</span>)</td><td>M/M</td><td>Develop on CPU/P100/T4 sessions; L4×4 only for validated full runs; batch experiments</td><td>Quota &lt; 2 full-submission equivalents → freeze experiments, submission-only mode</td></tr>
+    <tr><td>R6</td><td><b>Scoring-formula misread</b> (per-output granularity; C3 level weighting)</td><td>M/H</td><td>E01/E03 parity tests with unit fixtures before any optimization</td><td>Any parity doubt → resolve via official docs/rules tab before continuing</td></tr>
+    <tr><td>R7</td><td><b>C3 infra instability</b> (toolkit/wheels/env changes mid-competition)</td><td>M/H</td><td>Pin versions; log wheels hashes; replay-archive everything</td><td>Toolkit update announced → re-run E01 parity same day</td></tr>
+    <tr><td>R8</td><td><b>Open-source exposure</b> (solutions must be public for prizes <span class="b f">FACT</span>)</td><td>H/L</td><td>Assume public from Day 0 — build durable edge in data + discipline, not secrecy; license hygiene (CC0/MIT-0 own code)</td><td>— (accepted cost of playing)</td></tr>
+    <tr><td>R9</td><td><b>M2 distraction</b> — Sep 30 C3 milestone pulls focus from C2</td><td>M/M</td><td>G-M2 go/no-go with explicit C2-schedule precondition</td><td>C2 G0 slips → NO-GO on M2, no debate</td></tr>
+    <tr><td>R10</td><td><b>Novelty collision</b> — public notebooks converge on our selection angle</td><td>M/M</td><td>Weekly 30-min novelty scan (LB movement + new notebooks); differentiators: axis-targeted data + selection + bridge story</td><td>Collision found → accelerate the strongest differentiator, re-rank P1s</td></tr>
+    <tr><td>R11</td><td><b>Local-model ceiling</b> — no internet at eval; open weights may lag frontier</td><td>H/M</td><td>Model-choice experiment early (E04 across ≥2 local models); efficiency via small models (TRM-class) + search, not size alone</td><td>E04 pass@2 ≈ 0 on both models → pivot budget to TTT+data path</td></tr>
+    <tr><td>R12</td><td><b>Burnout / decision fatigue</b></td><td>M/M</td><td>Gates define stopping points; ledger carries context so breaks are cheap; 1 rest-half-day per week scheduled</td><td>Two consecutive days of no ledger entries → mandatory reset day</td></tr>
+  </table></div>
+</section>
+
+<!-- ============ 13. REPRODUCIBILITY CHECKLIST ============ -->
+<section id="s13">
+  <h2><span class="num">13</span>Reproducibility Checklist</h2>
+  <p class="lede">Doubles as the Grand-Prize artifact readiness test (artifacts attachable within 7 days of Nov 2 <span class="b f">FACT</span>) and the paper's reproducibility statement source. Tick as you go — state persists in this file.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Infrastructure &amp; environment</h4>
+      <ul class="chk">
+        <li><label><input type="checkbox"><span>Single-command local run of the full pipeline (<span class="mono">make run CONFIG=…</span>)</span></label></li>
+        <li><label><input type="checkbox"><span>Pinned dependencies (<span class="mono">requirements.txt</span> / lockfile) + Python version recorded</span></label></li>
+        <li><label><input type="checkbox"><span>Scorer parity unit tests (C2 per-output pass@2; C3 formula incl. squaring + weighting + cap) in CI</span></label></li>
+        <li><label><input type="checkbox"><span>Submission validator fuzz-tested (schema, task_id coverage, attempt keys, multi-output order)</span></label></li>
+        <li><label><input type="checkbox"><span>Cold-start verified: notebook runs from fresh Kaggle session, no cached state</span></label></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Data &amp; models</h4>
+      <ul class="chk">
+        <li><label><input type="checkbox"><span>All datasets (train / public eval / public games) with SHA-256 manifests</span></label></li>
+        <li><label><input type="checkbox"><span>Synthetic corpora regenerable from generator configs (seeded)</span></label></li>
+        <li><label><input type="checkbox"><span>Model weights checksummed; download + conversion scripted</span></label></li>
+        <li><label><input type="checkbox"><span>3rd-party assets license-audited (open-sharable <span class="b f">FACT</span> requirement)</span></label></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Runs &amp; results</h4>
+      <ul class="chk">
+        <li><label><input type="checkbox"><span>Every run: config snapshot + git sha + seeds + metrics.json in <span class="mono">runs/</span></span></label></li>
+        <li><label><input type="checkbox"><span>2-seed rule respected for deltas &lt; 2pp; bootstrap CIs stored</span></label></li>
+        <li><label><input type="checkbox"><span>Ablation matrix (E11) reproducible by script from ledger</span></label></li>
+        <li><label><input type="checkbox"><span>Every Kaggle submission archived: notebook version + config + returned score + |gap| vs prediction</span></label></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Release &amp; paper</h4>
+      <ul class="chk">
+        <li><label><input type="checkbox"><span>LICENSE = CC0 / MIT-0 (own code); third-party notices file</span></label></li>
+        <li><label><input type="checkbox"><span>README: one-paragraph method + reproduce instructions + expected runtimes</span></label></li>
+        <li><label><input type="checkbox"><span>Paper assets regenerable: <span class="mono">make paper-assets</span> emits every table/figure from the ledger</span></label></li>
+        <li><label><input type="checkbox"><span>Public notebook version ↔ submitted Kaggle notebook ↔ writeup submission ID — all three matched</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ============ 14. FINAL WINNING CHECKLIST ============ -->
+<section id="s14">
+  <h2><span class="num">14</span>Final Winning Checklist</h2>
+  <p class="lede">The elite bar, per phase. These are the conditions under which "we did everything a winner could do" is a factual statement — independent of where the leaderboard lands.</p>
+
+  <div class="card">
+    <h4>C2 — winning-level completion</h4>
+    <ul class="chk">
+      <li><label><input type="checkbox"><span>Every % of the final score is traceable to a ledger row with a paired delta (no orphan components).</span></label></li>
+      <li><label><input type="checkbox"><span>Ablation Table 1 complete; every component's marginal value per runtime-pp known.</span></label></li>
+      <li><label><input type="checkbox"><span>Ensemble justified by leave-one-out, not vibes; diversity measured (solve-overlap matrix).</span></label></li>
+      <li><label><input type="checkbox"><span>Two final slots submitted 48h early, chosen by pre-registered rule; robustness green; runtime margin ≥ 30 min.</span></label></li>
+      <li><label><input type="checkbox"><span>Validation honesty proven: |LB − predicted| ≤ 3pp on the first full public-eval run (G2-C2).</span></label></li>
+      <li><label><input type="checkbox"><span>Grand-Prize writeup assets staged before Nov 2 (7-day attach window starts at deadline).</span></label></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>C3 — winning-level completion</h4>
+    <ul class="chk">
+      <li><label><input type="checkbox"><span>Scorer parity + determinism status documented (the C3 equivalent of "our numbers mean something").</span></label></li>
+      <li><label><input type="checkbox"><span>Baseline ladder + game taxonomy published in ledger; every later delta attributed per game.</span></label></li>
+      <li><label><input type="checkbox"><span>Completion-first doctrine verifiably honored: no efficiency optimization ever reduced completions.</span></label></li>
+      <li><label><input type="checkbox"><span>Full-suite runtime ≤ 8.5h twice, cold-start; coverage: agent acts on every game.</span></label></li>
+      <li><label><input type="checkbox"><span>Kept/kill verdicts for all 10 experiments; replay figures exportable for the paper.</span></label></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Paper — winning-level completion</h4>
+    <ul class="chk">
+      <li><label><input type="checkbox"><span>Every claim labeled (result / existing evidence / hypothesis); zero unlabeled speculation.</span></label></li>
+      <li><label><input type="checkbox"><span>Rubric self-score ≥ 4.0 average with Theory + Novelty ≥ 4; word count ≤ 1,500.</span></label></li>
+      <li><label><input type="checkbox"><span>Submission ID ↔ notebook ↔ writeup linkage verified; cover image + media gallery complete.</span></label></li>
+      <li><label><input type="checkbox"><span>Submitted by Nov 6–7 (buffer against the Nov 8/9 ambiguity).</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 15. TODAY → NEXT DAY ============ -->
+<section id="s15">
+  <h2><span class="num">15</span>Today → Next Day Action Plan</h2>
+  <p class="lede">Day 0 = <b>today (Sat, Sep 13, 2026)</b>. 50 days to Nov 2. Goal of Day 0: eliminate every administrative risk and start G0-C2 evidence.</p>
+
+  <div class="card">
+    <h4>Day 0 — Sat Sep 13 · "Admin zero + harness start"</h4>
+    <ul class="chk">
+      <li><label><input type="checkbox"><span><b>[10 min]</b> Accept competition rules on ALL THREE tracks (C2, C3, Paper). Entry deadline Oct 26 — never think about this again. <span class="b f">FACT</span> requirement.</span></label></li>
+      <li><label><input type="checkbox"><span><b>[30 min]</b> Repo scaffold per §11.3 + LICENSE (CC0/MIT-0) + ledger CSVs (experiments, submissions) created.</span></label></li>
+      <li><label><input type="checkbox"><span><b>[45 min]</b> Download C2 data (train 1,000 + public eval 120; note exact filenames → resolves the §3.1 <span class="b v">VERIFY</span>) and C3 bundle (25 public game files, wheels, ARC-AGI-3-Agents repo); write SHA256SUMS.</span></label></li>
+      <li><label><input type="checkbox"><span><b>[60 min]</b> Install <span class="mono">arc-agi</span> toolkit; manually run one public game with a scripted agent; capture one replay JSON (C3 observer stream starts).</span></label></li>
+      <li><label><input type="checkbox"><span><b>[90 min]</b> C2 harness skeleton: loader + scorer + validator; first 5 unit tests (E01 started).</span></label></li>
+      <li><label><input type="checkbox"><span><b>[45 min]</b> Reading block: NVARC writeup, ARChitects 2025 writeup, TRM paper, C3 scoring methodology page → 10 bullets into <span class="mono">paper_assets/insights.md</span>.</span></label></li>
+      <li><label><input type="checkbox"><span><b>[15 min]</b> G-M2 preliminary call (§8): write one paragraph — can a minimal C3 notebook be public by Sep 29 without slipping G0-C2? Log verdict + revisit Sep 19.</span></label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Day 1 — Sun Sep 14 · "Parity + first submissions"</h4>
+    <ul class="chk">
+      <li><label><input type="checkbox"><span><b>[2h]</b> E01 complete: full unit-test suite green (multi-output tasks, edge shapes, attempt handling); scorer verified against public-eval ground truth.</span></label></li>
+      <li><label><input type="checkbox"><span><b>[1h]</b> E02: all-zeros notebook committed &amp; submitted (pipeline + runtime measurement); ledger row written.</span></label></li>
+      <li><label><input type="checkbox"><span><b>[1h]</b> E02b: prior-copy baseline submitted; Kaggle runtime + latency logged (calibrates submission cadence for the whole campaign).</span></label></li>
+      <li><label><input type="checkbox"><span><b>[1.5h]</b> C3 E01 start: toolkit wrapper + replay logger; determinism probe (repeat action sequence ×2, diff frames).</span></label></li>
+      <li><label><input type="checkbox"><span><b>[30 min]</b> Model selection shortlist for E04 (2 local open models compatible with 96GB L4×4, download sizes + licenses) → decision logged, weights downloading overnight.</span></label></li>
+      <li><label><input type="checkbox"><span><b>[15 min]</b> End-of-day gate check: G0-C2 evidence status updated in ledger; tomorrow's P0s named.</span></label></li>
+    </ul>
+  </div>
+
+  <div class="callout"><b>Definition of a good Day 0–1:</b> zero administrative risk remaining (rules, deadlines, licenses), E01 green, two legal submissions on the board, C3 observer alive, and a ledger that would let a stranger resume your work tomorrow. Nothing clever — everything load-bearing.</div>
+</section>
+
+<!-- ============ 16. MASTER TIMELINE ============ -->
+<section id="s16">
+  <h2><span class="num">16</span>Master Timeline</h2>
+  <p class="lede">Weeks from today (Sep 13) to results (Dec 4). Hard deadlines in gold; gates in blue. This table resolves the C2→C3 sequencing against the shared Nov 2 deadline.</p>
+  <div class="twrap"><table class="tbl">
+    <tr><th>Week</th><th>Dates (2026)</th><th>Phase focus</th><th>Concrete outputs</th><th>Gate / deadline</th></tr>
+    <tr class="gate"><td><b>W0</b></td><td>Sep 13–19</td><td>C2 Infra &amp; Reverse-Eng (+ C3 observer 10%)</td><td>Harness parity (E01), pipeline submissions (E02), B0 started (E03), admin zero</td><td><b>G0-C2</b> by Sep 19 · G-M2 preliminary call</td></tr>
+    <tr><td><b>W1</b></td><td>Sep 20–26</td><td>C2 Baseline → Strong Baseline</td><td>E04 pass@k curves, E05 TTT pipeline, error buckets v1</td><td><b>G1-C2</b> by Sep 26 · G-M2 final call (Sep 19–20)</td></tr>
+    <tr><td><b>W2</b></td><td>Sep 27–Oct 3</td><td>C2 Strong baseline → LB signal (+ C3 M2 micro-sprint only if GO)</td><td>First full public-eval submission; E06 generator build starts</td><td><b>G2-C2</b> by Oct 3 · <b>C3 Milestone 2: Sep 30</b> <span class="b gd">DEADLINE</span></td></tr>
+    <tr><td><b>W3</b></td><td>Oct 4–10</td><td>C2 Experimentation</td><td>E06 transfer results, E07 selector, E08 ensemble v1, E13 post-processing</td><td>Weekly prioritization re-score</td></tr>
+    <tr class="gate"><td><b>W4</b></td><td>Oct 11–17</td><td>C2 Ablation + freeze; C3 main ramp begins (50/50)</td><td>E11 matrix, E10 runtime pass, final C2 config frozen; C3 E01/E02 complete</td><td><b>G3-C2 (C2 FREEZE): Oct 17</b></td></tr>
+    <tr><td><b>W5</b></td><td>Oct 18–24</td><td>C3 sprint 1 (policy + memory) + C2 monitoring</td><td>C3 E03–E07 verdicts; C2 robustness (E12)</td><td>Entry/merger deadline approaching</td></tr>
+    <tr class="dl"><td><b>W6</b></td><td>Oct 25–31</td><td>C3 sprint 2 + both final submissions</td><td>C3 E09/E10; final notebooks committed; repro packages staged; writeup assets exported</td><td><b>Oct 26 entry/merger</b> <span class="b gd">DEADLINE</span> · <b>G4-C2 + G3-C3 by Oct 31</b></td></tr>
+    <tr class="dl"><td><b>W7</b></td><td>Nov 1–7</td><td><b>Final submissions due</b> + paper sprint</td><td>Nov 2: both final notebooks locked; story lock → draft → rubric self-score → submit paper</td><td><b>Nov 2 submissions</b> <span class="b gd">DEADLINE</span> · <b>Nov 8/9 paper</b> (target Nov 6–7)</td></tr>
+    <tr><td><b>W8</b></td><td>Nov 8–14</td><td>Paper buffer + Grand-Prize artifacts</td><td>C2 writeup artifacts attached if pursuing Grand Prize (7-day window from Nov 2)</td><td><b>Paper hard ceiling: Nov 8/9</b> <span class="b gd">DEADLINE</span></td></tr>
+    <tr><td><b>W9–W11</b></td><td>Nov 15–Dec 4</td><td>Final research package</td><td>Repo cleanup, extended-paper scaffold, lessons doc; optional public release polish</td><td><b>Dec 4: results announced</b></td></tr>
+  </table></div>
+  <div class="callout gold"><b>Why C2 first is still right, given both deadlines hit Nov 2:</b> C2's field is mature (top = 76.94) — closing the last pp requires the deep iteration loop (data → TTT → selection) that needs the longest runway; C3's field is young (top = 11.04), so a disciplined 2-week sprint with completion-first design plausibly lands top-5. The observer stream + the G-M2 gate prevent the C3 milestone from stealing C2 focus, and the paper reuses both ledgers with near-zero extra research cost. <span class="b r">RECOMMENDATION</span></div>
+</section>
+
+<!-- ============ 17. FINAL DEFINITION OF DONE ============ -->
+<section id="s17">
+  <h2><span class="num">17</span>Final Definition of Done</h2>
+  <p class="lede">The whole campaign, compressed. If every line below is true, the project is complete at a winning level — whatever the final ranks are.</p>
+
+  <div class="twrap"><table class="tbl">
+    <tr><th>Layer</th><th>Done means…</th></tr>
+    <tr><td><b>Competition 2</b></td><td>A frozen, reproducible system whose every component has a paired, ablated justification; two final submissions in 48h early with runtime margin; validation honesty proven (predicted ≈ LB); error analysis + robustness checks in the ledger; Grand-Prize artifacts attachable within 7 days.</td></tr>
+    <tr><td><b>Competition 3</b></td><td>An instrumented agent with scorer parity, a published baseline ladder + game taxonomy, validated gains above the floor, 9h-compliant full coverage, and kept/kill verdicts on all 10 experiments.</td></tr>
+    <tr><td><b>Paper</b></td><td>A ≤1,500-word writeup engineering-mapped to the public rubric, every claim labeled with evidence status, submitted with working notebook linkage by Nov 6–7 — plus an extended-version scaffold for post-December venues.</td></tr>
+    <tr><td><b>Research package</b></td><td>One repo: seeded configs, hashed data, parity-tested scorers, complete experiment ledger (ID → hypothesis → change → setup → metric → result → interpretation → decision), ablation tables, error taxonomies, replay archives, licenses, README — such that a stranger can rerun the entire campaign from one command.</td></tr>
+  </table></div>
+
+  <div class="card">
+    <h4>The standing answers (bookmark this block)</h4>
+    <ul>
+      <li><b>What am I doing now?</b> The current hot stage on the §4/§7 ladders + the header banner. If they disagree, the ledger is wrong — fix that first.</li>
+      <li><b>Why?</b> Every stage maps to a score lever (§3.2 / §6.3); every experiment maps to a question; every question maps to a gate.</li>
+      <li><b>What experiment comes next?</b> Highest <span class="mono">Impact × Evidence × Feasibility</span> among experiments whose stage-window is open and whose dependencies are green.</li>
+      <li><b>What evidence do I need?</b> The experiment card's expected-signal field, measured on the pre-registered validation setup, 2 seeds when Δ &lt; 2pp.</li>
+      <li><b>When do I stop?</b> The card's failure condition, or two MODIFY iterations — then the decision rule executes.</li>
+      <li><b>When do I move to C3?</b> When G3-C2 (C2 freeze) passes on Oct 17 — not before, except the 10% observer stream and the G-M2 exception.</li>
+      <li><b>When do I move to the paper?</b> Its research spine is built continuously (§9); full-time paper work starts Nov 3, submission by Nov 6–7.</li>
+      <li><b>What does winning-level completion look like?</b> §14, ticked line by line — the leaderboard then reports how the field voted; the process guarantees the attempt was worthy.</li>
+    </ul>
+  </div>
+
+  <div class="callout green">
+    <b>The one-line strategy:</b> measure ruthlessly (parity-tested harnesses), generate widely (priors + targeted synthetic data), select ruthlessly (calibrated 2-attempt policy / action-value policies), ensemble only diversity, respect the clocks (12h / 9h), and let the ledger — not memory or mood — make every keep/kill call.
+    <div class="bn" style="margin-top:6px">এক লাইনে: মাপো, তারপর বাছো, তারপর যাচাই করো — আর প্রতিটা সিদ্ধান্ত লেজারে লেখা থাকুক। এই ডিসিপ্লিন-ই উইনিং এজ।</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Sources (official, fetched 2026-09-12/13):</b>
+    <a href="https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/overview">Kaggle ARC-AGI-2</a> (overview/evaluation/timeline/prizes/code requirements) ·
+    <a href="https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3">Kaggle ARC-AGI-3</a> (overview + data/scoring page) ·
+    <a href="https://www.kaggle.com/competitions/arc-prize-2026-paper-track">Kaggle Paper Track</a> ·
+    <a href="https://arcprize.org/competitions/2026">arcprize.org/competitions/2026</a> ·
+    <a href="https://arcprize.org/competitions/2026/arc-agi-2">…/2026/arc-agi-2</a> ·
+    <a href="https://arcprize.org/competitions/2026/arc-agi-3">…/2026/arc-agi-3</a> ·
+    <a href="https://arcprize.org/competitions/2026/paper">…/2026/paper</a> ·
+    <a href="https://arcprize.org/arc-agi/2/">arcprize.org/arc-agi/2</a> ·
+    <a href="https://arcprize.org/arc-agi-3">arcprize.org/arc-agi-3</a> ·
+    <a href="https://arcprize.org/competitions/2025">2025 results</a> ·
+    <a href="https://arcprize.org/competitions/2024">2024 results</a> ·
+    <a href="https://docs.arcprize.org">docs.arcprize.org</a>. Leaderboard snapshots: 2026-09-12. Prior-art scores quoted from official result pages.</p>
+    <p><b>Known source discrepancies (carry the <span class="b v">VERIFY</span> tags above):</b> paper deadline Nov 8 (arcprize.org) vs Nov 9 (Kaggle); C3 milestone-2 prize split (Kaggle: 25/7.5/5K vs arcprize.org: 25/10/2.5K — totals match at $37.5K/milestone).</p>
+    <p><b>Companion file:</b> <span class="mono">index.html</span> — expert learning guide (concepts, background, 80/20). This file = execution system. · Built 2026-09-13 · v1.0 · checkboxes persist locally in your browser.</p>
+    <p style="margin-top:10px"><button class="mini-btn" onclick="document.querySelectorAll('details.exp').forEach(d=>d.open=true)">Expand all experiments</button> <button class="mini-btn" onclick="document.querySelectorAll('details.exp').forEach(d=>d.open=false)">Collapse all</button> <button class="mini-btn" onclick="if(confirm('Reset all checklist progress?')){Object.keys(localStorage).filter(k=>k.startsWith('arcroad_')).forEach(k=>localStorage.removeItem(k));location.reload()}">Reset progress</button></p>
+  </div>
+</footer>
+
+<script>
+// countdowns
+function daysTo(iso){const t=new Date(iso+"T23:59:59Z")-Date.now();return Math.floor(t/86400000);}
+document.querySelectorAll('.cd').forEach(el=>{const d=daysTo(el.dataset.t);el.textContent=d>=0?d+" days":"PASSED";});
+// checkbox persistence
+const boxes=[...document.querySelectorAll('input[type=checkbox]')];
+boxes.forEach((c,i)=>{const k='arcroad_'+location.pathname+'_'+i;try{if(localStorage.getItem(k)==='1')c.checked=true;}catch(e){}
+c.addEventListener('change',()=>{try{localStorage.setItem(k,c.checked?'1':'0');}catch(e){}});});
+// scroll spy
+const links=[...document.querySelectorAll('nav.toc a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const spy=()=>{let cur=0;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=120)cur=i;});
+links.forEach((a,i)=>a.classList.toggle('on',i===cur));};
+document.addEventListener('scroll',spy,{passive:true});spy();
+// print: expand details
+window.addEventListener('beforeprint',()=>document.querySelectorAll('details.exp').forEach(d=>d.open=true));
+</script>
+</body>
+</html>
