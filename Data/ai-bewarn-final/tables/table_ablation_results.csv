@@ -1,0 +1,9 @@
+ablation,scope,geo_population_recall,geo_overalert,geo_cvr,risk_delivery,scheduler_cvr,bearer_count,note,geo_gap,security_tpr,security_fpr,population_recall,cvr
+A0_FULL,final_test,0.9829783194917767,604526.2785342332,0.0,0.8318304925094553,0.2748148148148148,1.4348148148148148,Frozen full AI-BEWARN,,,,0.9829783194917767,0.2748148148148148
+A1_NO_GRAPH,final_test,0.9829660904370675,609723.1956998244,0.0,,,,Frozen XGBoost + frozen validation threshold + repair,,,,0.9829660904370675,
+A2_NO_DIRECT_RISK_FEATURES,final_test_frozen_checkpoint,0.9829531374553405,603322.1027738082,0.0,,,,"CONFIRMATORY: frozen-before-test MLP excludes population_risk, population_safe, risk_fraction; source=preaccess_phase3_readiness_annex; threshold selected on development validation only; safety repair remains the frozen operational constraint.",128.06632903373827,,,0.9829531374553405,
+A3_NO_SAFETY_REPAIR,final_test,0.9922522484945473,681183.8053916215,0.025925925925925925,,,,Frozen raw selected-family threshold output,,,,0.9922522484945473,
+A4_NO_PROBABILITY_CALIBRATION,final_test,,,,0.8533498232216551,0.2348148148148148,1.6237037037037036,Frozen raw Phase-3 network probabilities; no recalibration,,,,,0.2348148148148148
+A5_NO_JOINT_FAILURE,final_test,,,,0.8318304925094553,0.2748148148148148,1.4348148148148148,Independence dual reliability,,,,,0.2748148148148148
+A6_NO_ADAPTIVE_SCHEDULER,final_test,,,,0.8642207975170025,0.2288888888888889,2.0,Always dual,,,,,0.2288888888888889
+A7_NO_SECURITY_AI,final_security,,,,,,,Crypto + consistency + path-availability only,,0.7692307692307693,0.0,,

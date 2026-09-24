@@ -1,0 +1,13 @@
+\begin{tabular}{llllllllll}
+\toprule
+claim\_id & claim\_text & support\_status & experiment & metric & figure & table & result\_file & strength & notes \\
+\midrule
+C1 & Population-aware frozen AI-BEWARN reduces unnecessary alerting versus raw intersection while respecting configured severity-specific safety constraints. & SUPPORTED & main held-out geo & overalert, recall, CVR & fig\_geo\_final & table\_geo\_final & predictions/geofence\_scenario\_metrics.parquet & B & Tier-A benchmark scope only. \\
+C2 & Graph structure materially improves optimizer imitation over strong tabular models. & UNSUPPORTED & main held-out geo & feasible exact gap, CVR & fig\_geo\_quality\_runtime & table\_geo\_final & tables/table\_geo\_final.csv & D & Negative result preserved if graph does not win. \\
+C3 & Frozen learned geo surrogate is faster online than OR-Tools teacher. & UNSUPPORTED\_OR\_INCONCLUSIVE & same-hardware runtime & median/p95/p99 runtime & fig\_geo\_quality\_runtime & table\_runtime & tables/table\_runtime.csv & D & Hardware-specific. \\
+C4 & Adaptive AI-BEWARN scheduler improves resilience over the strong fixed-dual baseline. & UNSUPPORTED\_OR\_MIXED & final scheduler & risk delivery, CVR, bearer count & fig\_scheduler\_final & table\_scheduler\_final & predictions/scheduler\_decisions.parquet & D & Fixed Dual mandatory comparator. \\
+C5 & Authenticated cryptographic/cross-bearer consistency checks resist evaluated spoof/replay/mismatch attacks. & SUPPORTED & independent final controlled attacks & hard detection, verification latency & fig\_security\_final & table\_security\_by\_attack & predictions/security\_predictions.parquet & B & Controlled attacks only; no universal guarantee. \\
+C6 & Behavioral anomaly AI adds useful coverage beyond deterministic security. & SUPPORTED\_EXPLORATORY & independent synthetic behavioral attacks & AUPRC, recall, legitimate FPR, false alarms/1000 & fig\_security\_final & table\_security\_prevalence & security/prevalence\_sensitivity.parquet & C & Exploratory only; AI never overrides cryptography. \\
+C7 & Frozen Tier-A evidence is reproducible from hashed artifacts and prediction-level outputs. & SUPPORTED & artifact integrity + mini reproduction & hashes + self-test &  &  & manifests/checksums.sha256.csv & B & Reproducibility is not field validation. \\
+\bottomrule
+\end{tabular}
