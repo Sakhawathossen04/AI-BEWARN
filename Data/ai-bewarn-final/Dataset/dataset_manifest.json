@@ -1,0 +1,31 @@
+{
+  "dataset_name": "BD-MEWS-AI",
+  "version": "bd-mews-ai-v1/v6-synthetic-bd-aux-r1",
+  "regions": 3,
+  "events": 632,
+  "scenarios": 9000,
+  "topologies": 33,
+  "cells": 4794,
+  "cell_rows": 4794,
+  "network_rows": 2520000,
+  "source_data_categories": [
+    "unknown"
+  ],
+  "synthetic_components": [
+    "cellular topology/network states where identified by Phase-1 provenance"
+  ],
+  "derived_components": [
+    "hazard perturbations and Phase-2 hazard×cell/population/optimizer features where identified by provenance"
+  ],
+  "source_manifest": "manifests/source_license_manifest.csv",
+  "checksums": {
+    "regions.parquet": "d78bb989a8ef3dd7b9552f7c702471b70c1a240ad7470d2815f563e0667c36fe",
+    "events.parquet": "ccd0206c4a4aa620c7ce1f805ea59d94060ef3e674b6ec40d8e23458c0927b8a",
+    "hazard_polygons.parquet": "c3b01479e49f7e3b05b958263b7874518f6c89ff0077a8f1e93c2ff198ffd949",
+    "cells.parquet": "1fef39180c244377575c038c37c9d3349b2a27d7461c5e3cd73905472b1ff386",
+    "cell_static_features.parquet": "098c9a6caf7c4fd787999edf80bf24f70fe6dcf8f0cc675de49a5e672d197d3f",
+    "scenarios.parquet": "096bd12c1420671b3ea66e87fc3eefbeff476446d6bf222501fc990dd6cd93c3",
+    "network_states.parquet": "61f0b15f098bc2adbb2d197c24316209c439b2ec18adb3c9817f1b05c06080d6"
+  },
+  "scope_warning": "Source classes are preserved from Phase-1 metadata; do not reinterpret synthetic/modelled data as operator observations."
+}
